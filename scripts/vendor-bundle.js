@@ -43822,4 +43822,2816 @@ return Tether;
 
 }));
 
-function _aureliaConfigureModuleLoader(){requirejs.config({"baseUrl":"src/","paths":{"aurelia-binding":"..\\node_modules\\aurelia-binding\\dist\\amd\\aurelia-binding","aurelia-bootstrapper":"..\\node_modules\\aurelia-bootstrapper\\dist\\amd\\aurelia-bootstrapper","aurelia-event-aggregator":"..\\node_modules\\aurelia-event-aggregator\\dist\\amd\\aurelia-event-aggregator","aurelia-dependency-injection":"..\\node_modules\\aurelia-dependency-injection\\dist\\amd\\aurelia-dependency-injection","aurelia-history":"..\\node_modules\\aurelia-history\\dist\\amd\\aurelia-history","aurelia-framework":"..\\node_modules\\aurelia-framework\\dist\\amd\\aurelia-framework","aurelia-loader":"..\\node_modules\\aurelia-loader\\dist\\amd\\aurelia-loader","aurelia-loader-default":"..\\node_modules\\aurelia-loader-default\\dist\\amd\\aurelia-loader-default","aurelia-history-browser":"..\\node_modules\\aurelia-history-browser\\dist\\amd\\aurelia-history-browser","aurelia-logging-console":"..\\node_modules\\aurelia-logging-console\\dist\\amd\\aurelia-logging-console","aurelia-metadata":"..\\node_modules\\aurelia-metadata\\dist\\amd\\aurelia-metadata","aurelia-logging":"..\\node_modules\\aurelia-logging\\dist\\amd\\aurelia-logging","aurelia-pal":"..\\node_modules\\aurelia-pal\\dist\\amd\\aurelia-pal","aurelia-pal-browser":"..\\node_modules\\aurelia-pal-browser\\dist\\amd\\aurelia-pal-browser","aurelia-path":"..\\node_modules\\aurelia-path\\dist\\amd\\aurelia-path","aurelia-polyfills":"..\\node_modules\\aurelia-polyfills\\dist\\amd\\aurelia-polyfills","aurelia-route-recognizer":"..\\node_modules\\aurelia-route-recognizer\\dist\\amd\\aurelia-route-recognizer","aurelia-templating":"..\\node_modules\\aurelia-templating\\dist\\amd\\aurelia-templating","aurelia-router":"..\\node_modules\\aurelia-router\\dist\\amd\\aurelia-router","aurelia-templating-binding":"..\\node_modules\\aurelia-templating-binding\\dist\\amd\\aurelia-templating-binding","jquery":"..\\node_modules\\jquery\\dist\\jquery","text":"..\\node_modules\\text\\text","aurelia-task-queue":"..\\node_modules\\aurelia-task-queue\\dist\\amd\\aurelia-task-queue","velocity-animate":"..\\node_modules\\velocity-animate\\velocity","tether":"..\\node_modules\\tether\\dist\\js\\tether","app-bundle":"../scripts/app-bundle"},"packages":[{"name":"aurelia-templating-router","location":"../node_modules/aurelia-templating-router/dist/amd","main":"aurelia-templating-router"},{"name":"aurelia-templating-resources","location":"../node_modules/aurelia-templating-resources/dist/amd","main":"aurelia-templating-resources"},{"name":"aurelia-testing","location":"../node_modules/aurelia-testing/dist/amd","main":"aurelia-testing"},{"name":"nprogress","location":"../node_modules/nprogress","main":"nprogress"},{"name":"bootstrap","location":"../node_modules/bootstrap/dist","main":"js/bootstrap.min"}],"stubModules":["text"],"shim":{"bootstrap":{"deps":["jquery"],"exports":"$"}},"bundles":{"app-bundle":["app","contact-detail","contact-list","environment","main","messages","no-selection","utility","web-api","resources/index","resources/elements/loading-indicator","resources/elements/mh-pop","resources/elements/utils/bootstrap-options","resources/elements/utils/tooltip-service","styles"]}})}
+define('aurelia-bootstrap/index',["exports", "./accordion/aubs-accordion", "./accordion/aubs-accordion-group", "./buttons/aubs-btn-checkbox", "./buttons/aubs-btn-loading", "./buttons/aubs-btn-radio", "./collapse/aubs-collapse", "./dropdown/aubs-dropdown", "./dropdown/aubs-dropdown-toggle", "./pagination/aubs-pagination", "./popover/aubs-popover", "./tabs/aubs-tab", "./tabs/aubs-tabset", "./tooltip/aubs-tooltip", "./typeahead/aubs-typeahead", "./typeahead/typeahead-highlight", "./utils/bootstrap-config"], function (exports, _aubsAccordion, _aubsAccordionGroup, _aubsBtnCheckbox, _aubsBtnLoading, _aubsBtnRadio, _aubsCollapse, _aubsDropdown, _aubsDropdownToggle, _aubsPagination, _aubsPopover, _aubsTab, _aubsTabset, _aubsTooltip, _aubsTypeahead, _typeaheadHighlight, _bootstrapConfig) {
+    "use strict";
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.BootstrapConfig = exports.TypeaheadHighlightValueConverter = exports.AubsTypeaheadCustomElement = exports.AubsTooltipCustomAttribute = exports.AubsTabsetCustomElement = exports.AubsTabCustomElement = exports.AubsPopoverCustomAttribute = exports.AubsPaginationCustomElement = exports.AubsDropdownToggleCustomAttribute = exports.AubsDropdownCustomAttribute = exports.AubsCollapseCustomAttribute = exports.AubsBtnRadioCustomAttribute = exports.AubsBtnLoadingCustomAttribute = exports.AubsBtnCheckboxCustomAttribute = exports.AubsAccordionGroupCustomElement = exports.AubsAccordionCustomElement = undefined;
+    exports.configure = configure;
+    function configure(aurelia, callback) {
+        aurelia.globalResources('./accordion/aubs-accordion');
+        aurelia.globalResources('./accordion/aubs-accordion-group');
+        aurelia.globalResources('./buttons/aubs-btn-checkbox');
+        aurelia.globalResources('./buttons/aubs-btn-loading');
+        aurelia.globalResources('./buttons/aubs-btn-radio');
+        aurelia.globalResources('./collapse/aubs-collapse');
+        aurelia.globalResources('./dropdown/aubs-dropdown');
+        aurelia.globalResources('./dropdown/aubs-dropdown-toggle');
+        aurelia.globalResources('./pagination/aubs-pagination');
+        aurelia.globalResources('./popover/aubs-popover');
+        aurelia.globalResources('./tabs/aubs-tab');
+        aurelia.globalResources('./tabs/aubs-tabset');
+        aurelia.globalResources('./tooltip/aubs-tooltip');
+        aurelia.globalResources('./typeahead/aubs-typeahead');
+        aurelia.globalResources('./typeahead/typeahead-highlight');
+
+        var config = new _bootstrapConfig.BootstrapConfig();
+
+        if (typeof callback === 'function') {
+            callback(config);
+        }
+    }
+
+    exports.AubsAccordionCustomElement = _aubsAccordion.AubsAccordionCustomElement;
+    exports.AubsAccordionGroupCustomElement = _aubsAccordionGroup.AubsAccordionGroupCustomElement;
+    exports.AubsBtnCheckboxCustomAttribute = _aubsBtnCheckbox.AubsBtnCheckboxCustomAttribute;
+    exports.AubsBtnLoadingCustomAttribute = _aubsBtnLoading.AubsBtnLoadingCustomAttribute;
+    exports.AubsBtnRadioCustomAttribute = _aubsBtnRadio.AubsBtnRadioCustomAttribute;
+    exports.AubsCollapseCustomAttribute = _aubsCollapse.AubsCollapseCustomAttribute;
+    exports.AubsDropdownCustomAttribute = _aubsDropdown.AubsDropdownCustomAttribute;
+    exports.AubsDropdownToggleCustomAttribute = _aubsDropdownToggle.AubsDropdownToggleCustomAttribute;
+    exports.AubsPaginationCustomElement = _aubsPagination.AubsPaginationCustomElement;
+    exports.AubsPopoverCustomAttribute = _aubsPopover.AubsPopoverCustomAttribute;
+    exports.AubsTabCustomElement = _aubsTab.AubsTabCustomElement;
+    exports.AubsTabsetCustomElement = _aubsTabset.AubsTabsetCustomElement;
+    exports.AubsTooltipCustomAttribute = _aubsTooltip.AubsTooltipCustomAttribute;
+    exports.AubsTypeaheadCustomElement = _aubsTypeahead.AubsTypeaheadCustomElement;
+    exports.TypeaheadHighlightValueConverter = _typeaheadHighlight.TypeaheadHighlightValueConverter;
+    exports.BootstrapConfig = _bootstrapConfig.BootstrapConfig;
+});;define('aurelia-bootstrap', ['aurelia-bootstrap/index'], function (main) { return main; });
+
+define('aurelia-bootstrap/accordion/aubs-accordion',["exports", "aurelia-framework", "../utils/bootstrap-options"], function (exports, _aureliaFramework, _bootstrapOptions) {
+    "use strict";
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.AubsAccordionCustomElement = undefined;
+
+    function _initDefineProp(target, property, descriptor, context) {
+        if (!descriptor) return;
+        Object.defineProperty(target, property, {
+            enumerable: descriptor.enumerable,
+            configurable: descriptor.configurable,
+            writable: descriptor.writable,
+            value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
+        });
+    }
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+        var desc = {};
+        Object['ke' + 'ys'](descriptor).forEach(function (key) {
+            desc[key] = descriptor[key];
+        });
+        desc.enumerable = !!desc.enumerable;
+        desc.configurable = !!desc.configurable;
+
+        if ('value' in desc || desc.initializer) {
+            desc.writable = true;
+        }
+
+        desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+            return decorator(target, property, desc) || desc;
+        }, desc);
+
+        if (context && desc.initializer !== void 0) {
+            desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+            desc.initializer = undefined;
+        }
+
+        if (desc.initializer === void 0) {
+            Object['define' + 'Property'](target, property, desc);
+            desc = null;
+        }
+
+        return desc;
+    }
+
+    function _initializerWarningHelper(descriptor, context) {
+        throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
+    }
+
+    var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2;
+
+    var AubsAccordionCustomElement = exports.AubsAccordionCustomElement = (_dec = (0, _aureliaFramework.inject)(_aureliaFramework.BindingEngine), _dec2 = (0, _aureliaFramework.children)('aubs-accordion-group'), _dec(_class = (_class2 = function () {
+        function AubsAccordionCustomElement(bindingEngine) {
+            _classCallCheck(this, AubsAccordionCustomElement);
+
+            _initDefineProp(this, "closeOthers", _descriptor, this);
+
+            _initDefineProp(this, "groups", _descriptor2, this);
+
+            this.toggledListeners = [];
+
+            this.bindingEngine = bindingEngine;
+            this.bootstrapOptions = _bootstrapOptions.bootstrapOptions;
+        }
+
+        AubsAccordionCustomElement.prototype.detached = function detached() {
+            this.disposeListeners();
+        };
+
+        AubsAccordionCustomElement.prototype.register = function register(accordionGroup) {
+            this.groups.push(accordionGroup);
+        };
+
+        AubsAccordionCustomElement.prototype.disposeListeners = function disposeListeners() {
+            for (var _iterator = this.toggledListeners, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+                var _ref;
+
+                if (_isArray) {
+                    if (_i >= _iterator.length) break;
+                    _ref = _iterator[_i++];
+                } else {
+                    _i = _iterator.next();
+                    if (_i.done) break;
+                    _ref = _i.value;
+                }
+
+                var listener = _ref;
+
+                listener.dispose();
+            }
+
+            this.toggledListeners = [];
+        };
+
+        AubsAccordionCustomElement.prototype.groupToggled = function groupToggled(group) {
+            if (group.isOpen && this.closeOthers) {
+                for (var _iterator2 = this.groups, _isArray2 = Array.isArray(_iterator2), _i2 = 0, _iterator2 = _isArray2 ? _iterator2 : _iterator2[Symbol.iterator]();;) {
+                    var _ref2;
+
+                    if (_isArray2) {
+                        if (_i2 >= _iterator2.length) break;
+                        _ref2 = _iterator2[_i2++];
+                    } else {
+                        _i2 = _iterator2.next();
+                        if (_i2.done) break;
+                        _ref2 = _i2.value;
+                    }
+
+                    var next = _ref2;
+
+                    if (next !== group) {
+                        next.isOpen = false;
+                    }
+                }
+            }
+        };
+
+        return AubsAccordionCustomElement;
+    }(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "closeOthers", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return _bootstrapOptions.bootstrapOptions.accordionCloseOthers;
+        }
+    }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "groups", [_dec2], {
+        enumerable: true,
+        initializer: function initializer() {
+            return [];
+        }
+    })), _class2)) || _class);
+});
+define('aurelia-bootstrap/utils/bootstrap-options',['exports'], function (exports) {
+    'use strict';
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    var bootstrapOptions = exports.bootstrapOptions = {
+        version: 3,
+        accordionCloseOthers: true,
+        accordionGroupPanelClass: 'panel-default',
+        btnLoadingText: 'Loading...',
+        dropdownAutoClose: 'always',
+        paginationBoundaryLinks: false,
+        paginationDirectionLinks: true,
+        paginationFirstText: 'First',
+        paginationHideSinglePage: true,
+        paginationLastText: 'Last',
+        paginationNextText: '>',
+        paginationPreviousText: '<',
+        popoverPosition: 'top',
+        popoverTrigger: 'mouseover',
+        tabsetType: 'tabs',
+        tabsetVertical: false,
+        tooltipPosition: 'top',
+        tooltipTrigger: 'mouseover'
+    };
+});
+define('aurelia-bootstrap/accordion/aubs-accordion-group',["exports", "aurelia-framework", "../utils/bootstrap-options", "velocity-animate", "./aubs-accordion"], function (exports, _aureliaFramework, _bootstrapOptions, _velocityAnimate, _aubsAccordion) {
+    "use strict";
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.AubsAccordionGroupCustomElement = undefined;
+
+    var _velocityAnimate2 = _interopRequireDefault(_velocityAnimate);
+
+    function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : {
+            default: obj
+        };
+    }
+
+    function _initDefineProp(target, property, descriptor, context) {
+        if (!descriptor) return;
+        Object.defineProperty(target, property, {
+            enumerable: descriptor.enumerable,
+            configurable: descriptor.configurable,
+            writable: descriptor.writable,
+            value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
+        });
+    }
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+        var desc = {};
+        Object['ke' + 'ys'](descriptor).forEach(function (key) {
+            desc[key] = descriptor[key];
+        });
+        desc.enumerable = !!desc.enumerable;
+        desc.configurable = !!desc.configurable;
+
+        if ('value' in desc || desc.initializer) {
+            desc.writable = true;
+        }
+
+        desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+            return decorator(target, property, desc) || desc;
+        }, desc);
+
+        if (context && desc.initializer !== void 0) {
+            desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+            desc.initializer = undefined;
+        }
+
+        if (desc.initializer === void 0) {
+            Object['define' + 'Property'](target, property, desc);
+            desc = null;
+        }
+
+        return desc;
+    }
+
+    function _initializerWarningHelper(descriptor, context) {
+        throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
+    }
+
+    var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4;
+
+    var AubsAccordionGroupCustomElement = exports.AubsAccordionGroupCustomElement = (_dec = (0, _aureliaFramework.inject)(_aubsAccordion.AubsAccordionCustomElement), _dec2 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), (0, _aureliaFramework.containerless)(_class = _dec(_class = (_class2 = function () {
+        function AubsAccordionGroupCustomElement(accordion) {
+            _classCallCheck(this, AubsAccordionGroupCustomElement);
+
+            _initDefineProp(this, "title", _descriptor, this);
+
+            _initDefineProp(this, "panelClass", _descriptor2, this);
+
+            _initDefineProp(this, "isOpen", _descriptor3, this);
+
+            _initDefineProp(this, "disabled", _descriptor4, this);
+
+            this.accordion = accordion;
+            this.accordion.register(this);
+        }
+
+        AubsAccordionGroupCustomElement.prototype.bind = function bind() {
+            if (typeof this.isOpen !== 'boolean') {
+                this.isOpen = false;
+            }
+        };
+
+        AubsAccordionGroupCustomElement.prototype.attached = function attached() {
+            if (this.isOpen) {
+                this.$collapse.classList.add('in');
+                (0, _velocityAnimate2.default)(this.$collapse, 'slideDown', { duration: 0 });
+            }
+        };
+
+        AubsAccordionGroupCustomElement.prototype.isBootstrapVersion = function isBootstrapVersion(version) {
+            return _bootstrapOptions.bootstrapOptions.version === version;
+        };
+
+        AubsAccordionGroupCustomElement.prototype.isOpenChanged = function isOpenChanged() {
+            this.animate();
+
+            if (this.isOpen) {
+                this.accordion.groupToggled(this);
+            }
+        };
+
+        AubsAccordionGroupCustomElement.prototype.toggle = function toggle() {
+            this.isOpen = !this.isOpen;
+        };
+
+        AubsAccordionGroupCustomElement.prototype.animate = function animate() {
+            if (this.isOpen) {
+                this.$collapse.classList.add('in');
+                (0, _velocityAnimate2.default)(this.$collapse, 'slideDown');
+            } else {
+                (0, _velocityAnimate2.default)(this.$collapse, 'slideUp');
+                this.$collapse.classList.remove('in');
+            }
+        };
+
+        return AubsAccordionGroupCustomElement;
+    }(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "title", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: null
+    }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "panelClass", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return _bootstrapOptions.bootstrapOptions.accordionGroupPanelClass;
+        }
+    }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "isOpen", [_dec2], {
+        enumerable: true,
+        initializer: function initializer() {
+            return false;
+        }
+    }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "disabled", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return false;
+        }
+    })), _class2)) || _class) || _class);
+});
+define('aurelia-bootstrap/buttons/aubs-btn-checkbox',['exports', 'aurelia-framework'], function (exports, _aureliaFramework) {
+    'use strict';
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.AubsBtnCheckboxCustomAttribute = undefined;
+
+    function _initDefineProp(target, property, descriptor, context) {
+        if (!descriptor) return;
+        Object.defineProperty(target, property, {
+            enumerable: descriptor.enumerable,
+            configurable: descriptor.configurable,
+            writable: descriptor.writable,
+            value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
+        });
+    }
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+        var desc = {};
+        Object['ke' + 'ys'](descriptor).forEach(function (key) {
+            desc[key] = descriptor[key];
+        });
+        desc.enumerable = !!desc.enumerable;
+        desc.configurable = !!desc.configurable;
+
+        if ('value' in desc || desc.initializer) {
+            desc.writable = true;
+        }
+
+        desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+            return decorator(target, property, desc) || desc;
+        }, desc);
+
+        if (context && desc.initializer !== void 0) {
+            desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+            desc.initializer = undefined;
+        }
+
+        if (desc.initializer === void 0) {
+            Object['define' + 'Property'](target, property, desc);
+            desc = null;
+        }
+
+        return desc;
+    }
+
+    function _initializerWarningHelper(descriptor, context) {
+        throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
+    }
+
+    var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3;
+
+    var AubsBtnCheckboxCustomAttribute = exports.AubsBtnCheckboxCustomAttribute = (_dec = (0, _aureliaFramework.inject)(Element), _dec2 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = (_class2 = function () {
+        function AubsBtnCheckboxCustomAttribute(element) {
+            var _this = this;
+
+            _classCallCheck(this, AubsBtnCheckboxCustomAttribute);
+
+            _initDefineProp(this, 'state', _descriptor, this);
+
+            _initDefineProp(this, 'checkedValue', _descriptor2, this);
+
+            _initDefineProp(this, 'uncheckedValue', _descriptor3, this);
+
+            this.element = element;
+
+            if (this.element.tagName !== 'BUTTON' && this.element.tagName !== 'A') {
+                throw new Error("The aubs-btn-checkbox attribute can only be used in button and anchor elements");
+            }
+
+            this.clickedListener = function () {
+                return _this.buttonClicked();
+            };
+        }
+
+        AubsBtnCheckboxCustomAttribute.prototype.bind = function bind() {
+            if (this.checkedValue == undefined || this.checkedValue == null) {
+                this.checkedValue = true;
+            }
+
+            if (this.uncheckedValue == undefined || this.uncheckedValue == null) {
+                this.uncheckedValue = false;
+            }
+
+            if (this.state !== this.checkedValue && this.state !== this.uncheckedValue) {
+                this.state = this.uncheckedValue;
+            }
+        };
+
+        AubsBtnCheckboxCustomAttribute.prototype.attached = function attached() {
+            this.element.addEventListener('click', this.clickedListener);
+            this.setClass();
+        };
+
+        AubsBtnCheckboxCustomAttribute.prototype.detached = function detached() {
+            this.element.removeEventListener('click', this.clickedListener);
+        };
+
+        AubsBtnCheckboxCustomAttribute.prototype.stateChanged = function stateChanged() {
+            this.setClass();
+        };
+
+        AubsBtnCheckboxCustomAttribute.prototype.buttonClicked = function buttonClicked() {
+            this.state = this.state === this.checkedValue ? this.uncheckedValue : this.checkedValue;
+            this.setClass();
+        };
+
+        AubsBtnCheckboxCustomAttribute.prototype.setClass = function setClass() {
+            if (this.state == this.checkedValue) {
+                this.element.classList.add('active');
+            } else {
+                this.element.classList.remove('active');
+            }
+        };
+
+        return AubsBtnCheckboxCustomAttribute;
+    }(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'state', [_dec2], {
+        enumerable: true,
+        initializer: null
+    }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'checkedValue', [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: null
+    }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'uncheckedValue', [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: null
+    })), _class2)) || _class);
+});
+define('aurelia-bootstrap/buttons/aubs-btn-loading',['exports', 'aurelia-framework', '../utils/bootstrap-options'], function (exports, _aureliaFramework, _bootstrapOptions) {
+    'use strict';
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.AubsBtnLoadingCustomAttribute = undefined;
+
+    function _initDefineProp(target, property, descriptor, context) {
+        if (!descriptor) return;
+        Object.defineProperty(target, property, {
+            enumerable: descriptor.enumerable,
+            configurable: descriptor.configurable,
+            writable: descriptor.writable,
+            value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
+        });
+    }
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+        var desc = {};
+        Object['ke' + 'ys'](descriptor).forEach(function (key) {
+            desc[key] = descriptor[key];
+        });
+        desc.enumerable = !!desc.enumerable;
+        desc.configurable = !!desc.configurable;
+
+        if ('value' in desc || desc.initializer) {
+            desc.writable = true;
+        }
+
+        desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+            return decorator(target, property, desc) || desc;
+        }, desc);
+
+        if (context && desc.initializer !== void 0) {
+            desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+            desc.initializer = undefined;
+        }
+
+        if (desc.initializer === void 0) {
+            Object['define' + 'Property'](target, property, desc);
+            desc = null;
+        }
+
+        return desc;
+    }
+
+    function _initializerWarningHelper(descriptor, context) {
+        throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
+    }
+
+    var _dec, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3;
+
+    var AubsBtnLoadingCustomAttribute = exports.AubsBtnLoadingCustomAttribute = (_dec = (0, _aureliaFramework.inject)(Element), _dec(_class = (_class2 = function () {
+        function AubsBtnLoadingCustomAttribute(element) {
+            _classCallCheck(this, AubsBtnLoadingCustomAttribute);
+
+            _initDefineProp(this, 'loading', _descriptor, this);
+
+            _initDefineProp(this, 'text', _descriptor2, this);
+
+            _initDefineProp(this, 'disabled', _descriptor3, this);
+
+            this.element = element;
+
+            if (this.element.tagName !== 'BUTTON' && this.element.tagName !== 'A') {
+                throw new Error("The aubs-btn-loading attribute can only be used in button and anchor elements");
+            }
+        }
+
+        AubsBtnLoadingCustomAttribute.prototype.attached = function attached() {
+            this.isAttached = true;
+            this.innerHTML = this.element.innerHTML;
+            this.setClass();
+            this.disabledChanged();
+        };
+
+        AubsBtnLoadingCustomAttribute.prototype.loadingChanged = function loadingChanged() {
+            if (this.isAttached) {
+                this.setClass();
+            }
+        };
+
+        AubsBtnLoadingCustomAttribute.prototype.disabledChanged = function disabledChanged() {
+            if (!this.isAttached) {
+                return;
+            }
+
+            if (this.disabled) {
+                if (!this.loading) {
+                    this.element.classList.add("disabled");
+                    this.element.disabled = true;
+                }
+            } else {
+                if (!this.loading) {
+                    this.element.classList.remove("disabled");
+                    this.element.disabled = false;
+                }
+            }
+        };
+
+        AubsBtnLoadingCustomAttribute.prototype.setClass = function setClass() {
+            if (this.loading) {
+                this.innerHTML = this.element.innerHTML;
+                this.element.innerHTML = this.text;
+                this.element.classList.add("disabled");
+                this.element.disabled = true;
+            } else {
+                this.element.innerHTML = this.innerHTML;
+
+                if (!this.disabled) {
+                    this.element.classList.remove("disabled");
+                    this.element.disabled = false;
+                }
+            }
+        };
+
+        return AubsBtnLoadingCustomAttribute;
+    }(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'loading', [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: null
+    }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'text', [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return _bootstrapOptions.bootstrapOptions.btnLoadingText;
+        }
+    }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'disabled', [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return false;
+        }
+    })), _class2)) || _class);
+});
+define('aurelia-bootstrap/buttons/aubs-btn-radio',['exports', 'aurelia-framework'], function (exports, _aureliaFramework) {
+    'use strict';
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.AubsBtnRadioCustomAttribute = undefined;
+
+    function _initDefineProp(target, property, descriptor, context) {
+        if (!descriptor) return;
+        Object.defineProperty(target, property, {
+            enumerable: descriptor.enumerable,
+            configurable: descriptor.configurable,
+            writable: descriptor.writable,
+            value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
+        });
+    }
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+        var desc = {};
+        Object['ke' + 'ys'](descriptor).forEach(function (key) {
+            desc[key] = descriptor[key];
+        });
+        desc.enumerable = !!desc.enumerable;
+        desc.configurable = !!desc.configurable;
+
+        if ('value' in desc || desc.initializer) {
+            desc.writable = true;
+        }
+
+        desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+            return decorator(target, property, desc) || desc;
+        }, desc);
+
+        if (context && desc.initializer !== void 0) {
+            desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+            desc.initializer = undefined;
+        }
+
+        if (desc.initializer === void 0) {
+            Object['define' + 'Property'](target, property, desc);
+            desc = null;
+        }
+
+        return desc;
+    }
+
+    function _initializerWarningHelper(descriptor, context) {
+        throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
+    }
+
+    var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2;
+
+    var AubsBtnRadioCustomAttribute = exports.AubsBtnRadioCustomAttribute = (_dec = (0, _aureliaFramework.inject)(Element), _dec2 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = (_class2 = function () {
+        function AubsBtnRadioCustomAttribute(element) {
+            var _this = this;
+
+            _classCallCheck(this, AubsBtnRadioCustomAttribute);
+
+            _initDefineProp(this, 'model', _descriptor, this);
+
+            _initDefineProp(this, 'value', _descriptor2, this);
+
+            this.element = element;
+
+            if (this.element.tagName !== 'BUTTON' && this.element.tagName !== 'A') {
+                throw new Error("The aubs-btn-radio attribute can only be used in button and anchor elements");
+            }
+
+            this.clickedListener = function () {
+                return _this.buttonClicked();
+            };
+        }
+
+        AubsBtnRadioCustomAttribute.prototype.bind = function bind() {
+            if (this.value == null || this.value == undefined) {
+                throw new Error('Must provide a value for the radio button');
+            }
+        };
+
+        AubsBtnRadioCustomAttribute.prototype.attached = function attached() {
+            this.element.addEventListener('click', this.clickedListener);
+            this.setClass();
+        };
+
+        AubsBtnRadioCustomAttribute.prototype.detached = function detached() {
+            this.element.removeEventListener('click', this.clickedListener);
+        };
+
+        AubsBtnRadioCustomAttribute.prototype.modelChanged = function modelChanged() {
+            this.setClass();
+        };
+
+        AubsBtnRadioCustomAttribute.prototype.buttonClicked = function buttonClicked() {
+            if (this.model == this.value) {
+                return;
+            }
+
+            this.model = this.value;
+        };
+
+        AubsBtnRadioCustomAttribute.prototype.setClass = function setClass() {
+            if (this.model == this.value) {
+                this.element.classList.add('active');
+            } else {
+                this.element.classList.remove('active');
+            }
+        };
+
+        return AubsBtnRadioCustomAttribute;
+    }(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'model', [_dec2], {
+        enumerable: true,
+        initializer: null
+    }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'value', [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: null
+    })), _class2)) || _class);
+});
+define('aurelia-bootstrap/collapse/aubs-collapse',["exports", "aurelia-framework", "velocity-animate"], function (exports, _aureliaFramework, _velocityAnimate) {
+    "use strict";
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.AubsCollapseCustomAttribute = undefined;
+
+    var _velocityAnimate2 = _interopRequireDefault(_velocityAnimate);
+
+    function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : {
+            default: obj
+        };
+    }
+
+    function _initDefineProp(target, property, descriptor, context) {
+        if (!descriptor) return;
+        Object.defineProperty(target, property, {
+            enumerable: descriptor.enumerable,
+            configurable: descriptor.configurable,
+            writable: descriptor.writable,
+            value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
+        });
+    }
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+        var desc = {};
+        Object['ke' + 'ys'](descriptor).forEach(function (key) {
+            desc[key] = descriptor[key];
+        });
+        desc.enumerable = !!desc.enumerable;
+        desc.configurable = !!desc.configurable;
+
+        if ('value' in desc || desc.initializer) {
+            desc.writable = true;
+        }
+
+        desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+            return decorator(target, property, desc) || desc;
+        }, desc);
+
+        if (context && desc.initializer !== void 0) {
+            desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+            desc.initializer = undefined;
+        }
+
+        if (desc.initializer === void 0) {
+            Object['define' + 'Property'](target, property, desc);
+            desc = null;
+        }
+
+        return desc;
+    }
+
+    function _initializerWarningHelper(descriptor, context) {
+        throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
+    }
+
+    var _dec, _class, _desc, _value, _class2, _descriptor;
+
+    var AubsCollapseCustomAttribute = exports.AubsCollapseCustomAttribute = (_dec = (0, _aureliaFramework.inject)(Element), _dec(_class = (_class2 = function () {
+        function AubsCollapseCustomAttribute(element) {
+            _classCallCheck(this, AubsCollapseCustomAttribute);
+
+            _initDefineProp(this, "collapsed", _descriptor, this);
+
+            this.element = element;
+        }
+
+        AubsCollapseCustomAttribute.prototype.attached = function attached() {
+            if (this.collapsed) {
+                this.element.style.display = 'none';
+            }
+
+            this.isAttached = true;
+        };
+
+        AubsCollapseCustomAttribute.prototype.collapsedChanged = function collapsedChanged() {
+            if (!this.isAttached) {
+                return;
+            }
+
+            if (this.collapsed) {
+                (0, _velocityAnimate2.default)(this.element, 'slideUp');
+            } else {
+                (0, _velocityAnimate2.default)(this.element, 'slideDown');
+            }
+        };
+
+        return AubsCollapseCustomAttribute;
+    }(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "collapsed", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return false;
+        }
+    })), _class2)) || _class);
+});
+define('aurelia-bootstrap/dropdown/aubs-dropdown',["exports", "aurelia-framework", "../utils/bootstrap-options"], function (exports, _aureliaFramework, _bootstrapOptions) {
+    "use strict";
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.AubsDropdownCustomAttribute = undefined;
+
+    function _initDefineProp(target, property, descriptor, context) {
+        if (!descriptor) return;
+        Object.defineProperty(target, property, {
+            enumerable: descriptor.enumerable,
+            configurable: descriptor.configurable,
+            writable: descriptor.writable,
+            value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
+        });
+    }
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+        var desc = {};
+        Object['ke' + 'ys'](descriptor).forEach(function (key) {
+            desc[key] = descriptor[key];
+        });
+        desc.enumerable = !!desc.enumerable;
+        desc.configurable = !!desc.configurable;
+
+        if ('value' in desc || desc.initializer) {
+            desc.writable = true;
+        }
+
+        desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+            return decorator(target, property, desc) || desc;
+        }, desc);
+
+        if (context && desc.initializer !== void 0) {
+            desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+            desc.initializer = undefined;
+        }
+
+        if (desc.initializer === void 0) {
+            Object['define' + 'Property'](target, property, desc);
+            desc = null;
+        }
+
+        return desc;
+    }
+
+    function _initializerWarningHelper(descriptor, context) {
+        throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
+    }
+
+    var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3;
+
+    var AubsDropdownCustomAttribute = exports.AubsDropdownCustomAttribute = (_dec = (0, _aureliaFramework.inject)(Element), _dec2 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = (_class2 = function () {
+        function AubsDropdownCustomAttribute(element) {
+            var _this = this;
+
+            _classCallCheck(this, AubsDropdownCustomAttribute);
+
+            _initDefineProp(this, "isOpen", _descriptor, this);
+
+            _initDefineProp(this, "autoClose", _descriptor2, this);
+
+            _initDefineProp(this, "onToggle", _descriptor3, this);
+
+            this.element = element;
+
+            this.outsideClickListener = function (evt) {
+                return _this.handleBlur(evt);
+            };
+        }
+
+        AubsDropdownCustomAttribute.prototype.bind = function bind() {
+            if (this.hasIsOpen()) {
+                this.state = false;
+            } else {
+                this.state = this.isOpen ? true : false;
+            }
+        };
+
+        AubsDropdownCustomAttribute.prototype.attached = function attached() {
+            this.isAttached = true;
+            this.setClass();
+
+            this.setListener();
+        };
+
+        AubsDropdownCustomAttribute.prototype.setListener = function setListener() {
+            if (this.autoClose !== 'disabled') {
+                document.addEventListener('click', this.outsideClickListener);
+            }
+        };
+
+        AubsDropdownCustomAttribute.prototype.detached = function detached() {
+            if (this.autoClose !== 'disabled') {
+                document.removeEventListener('click', this.outsideClickListener);
+            }
+        };
+
+        AubsDropdownCustomAttribute.prototype.autoCloseChanged = function autoCloseChanged(newValue, oldValue) {
+            if (!this.isAttached) {
+                return;
+            }
+
+            if (oldValue !== 'disabled') {
+                this.detached();
+            }
+
+            this.setListener();
+        };
+
+        AubsDropdownCustomAttribute.prototype.isOpenChanged = function isOpenChanged() {
+            this.state = this.isOpen ? true : false;
+
+            if (this.isAttached) {
+                this.setClass();
+            }
+        };
+
+        AubsDropdownCustomAttribute.prototype.toggle = function toggle() {
+            if (this.hasIsOpen()) {
+                this.isOpen = !this.state;
+            }
+            this.state = !this.state;
+
+            if (typeof this.onToggle === 'function') {
+                this.onToggle({ open: this.state });
+            }
+
+            this.setClass();
+        };
+
+        AubsDropdownCustomAttribute.prototype.handleBlur = function handleBlur(evt) {
+            if (!this.state) {
+                return;
+            }
+
+            if (!this.element.contains(evt.target) || this.autoClose !== 'outside' && this.isMenuItem(evt)) {
+                this.toggle();
+            }
+        };
+
+        AubsDropdownCustomAttribute.prototype.isMenuItem = function isMenuItem(evt) {
+            if (_bootstrapOptions.bootstrapOptions.version === 4) {
+                return evt.target.parentNode.classList.contains('dropdown-item');
+            } else {
+                return evt.target.parentNode.parentNode.classList.contains('dropdown-menu');
+            }
+        };
+
+        AubsDropdownCustomAttribute.prototype.setClass = function setClass() {
+            if (this.state) {
+                this.element.classList.add('open');
+            } else {
+                this.element.classList.remove('open');
+            }
+        };
+
+        AubsDropdownCustomAttribute.prototype.hasIsOpen = function hasIsOpen() {
+            return this.isOpen !== undefined && this.isOpen !== null;
+        };
+
+        return AubsDropdownCustomAttribute;
+    }(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "isOpen", [_dec2], {
+        enumerable: true,
+        initializer: null
+    }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "autoClose", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return _bootstrapOptions.bootstrapOptions.dropdownAutoClose;
+        }
+    }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "onToggle", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: null
+    })), _class2)) || _class);
+});
+define('aurelia-bootstrap/dropdown/aubs-dropdown-toggle',["exports", "aurelia-framework", "./aubs-dropdown"], function (exports, _aureliaFramework, _aubsDropdown) {
+    "use strict";
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.AubsDropdownToggleCustomAttribute = undefined;
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    var _dec, _class;
+
+    var AubsDropdownToggleCustomAttribute = exports.AubsDropdownToggleCustomAttribute = (_dec = (0, _aureliaFramework.inject)(_aubsDropdown.AubsDropdownCustomAttribute, Element), _dec(_class = function () {
+        function AubsDropdownToggleCustomAttribute(dropdown, element) {
+            var _this = this;
+
+            _classCallCheck(this, AubsDropdownToggleCustomAttribute);
+
+            this.dropdown = dropdown;
+            this.element = element;
+
+            this.clickedListener = function () {
+                return _this.dropdown.toggle();
+            };
+        }
+
+        AubsDropdownToggleCustomAttribute.prototype.attached = function attached() {
+            this.element.addEventListener('click', this.clickedListener);
+        };
+
+        AubsDropdownToggleCustomAttribute.prototype.detached = function detached() {
+            this.element.removeEventListener('click', this.clickedListener);
+        };
+
+        return AubsDropdownToggleCustomAttribute;
+    }()) || _class);
+});
+define('aurelia-bootstrap/pagination/aubs-pagination',["exports", "aurelia-framework", "../utils/bootstrap-options"], function (exports, _aureliaFramework, _bootstrapOptions) {
+    "use strict";
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.AubsPaginationCustomElement = undefined;
+
+    function _initDefineProp(target, property, descriptor, context) {
+        if (!descriptor) return;
+        Object.defineProperty(target, property, {
+            enumerable: descriptor.enumerable,
+            configurable: descriptor.configurable,
+            writable: descriptor.writable,
+            value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
+        });
+    }
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+        var desc = {};
+        Object['ke' + 'ys'](descriptor).forEach(function (key) {
+            desc[key] = descriptor[key];
+        });
+        desc.enumerable = !!desc.enumerable;
+        desc.configurable = !!desc.configurable;
+
+        if ('value' in desc || desc.initializer) {
+            desc.writable = true;
+        }
+
+        desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+            return decorator(target, property, desc) || desc;
+        }, desc);
+
+        if (context && desc.initializer !== void 0) {
+            desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+            desc.initializer = undefined;
+        }
+
+        if (desc.initializer === void 0) {
+            Object['define' + 'Property'](target, property, desc);
+            desc = null;
+        }
+
+        return desc;
+    }
+
+    function _initializerWarningHelper(descriptor, context) {
+        throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
+    }
+
+    var _dec, _desc, _value, _class, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11;
+
+    var AubsPaginationCustomElement = exports.AubsPaginationCustomElement = (_dec = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), (_class = function () {
+        function AubsPaginationCustomElement() {
+            _classCallCheck(this, AubsPaginationCustomElement);
+
+            _initDefineProp(this, "currentPage", _descriptor, this);
+
+            _initDefineProp(this, "pageSize", _descriptor2, this);
+
+            _initDefineProp(this, "totalItems", _descriptor3, this);
+
+            _initDefineProp(this, "hideSinglePage", _descriptor4, this);
+
+            _initDefineProp(this, "paginationSize", _descriptor5, this);
+
+            _initDefineProp(this, "boundaryLinks", _descriptor6, this);
+
+            _initDefineProp(this, "firstText", _descriptor7, this);
+
+            _initDefineProp(this, "lastText", _descriptor8, this);
+
+            _initDefineProp(this, "directionLinks", _descriptor9, this);
+
+            _initDefineProp(this, "previousText", _descriptor10, this);
+
+            _initDefineProp(this, "nextText", _descriptor11, this);
+
+            this.totalPages = 1;
+            this.displayPages = [];
+        }
+
+        AubsPaginationCustomElement.prototype.bind = function bind() {
+            if (this.currentPage === undefined || this.currentPage == null || this.currentPage < 1) {
+                this.currentPage = 1;
+            }
+
+            if (this.pageSize === undefined || this.pageSize === null || this.pageSize < 1) {
+                this.pageSize = 5;
+            }
+        };
+
+        AubsPaginationCustomElement.prototype.totalItemsChanged = function totalItemsChanged() {
+            this.currentPage = 1;
+            this.calculatePages();
+        };
+
+        AubsPaginationCustomElement.prototype.pageSizeChanged = function pageSizeChanged() {
+            this.currentPage = 1;
+            this.calculatePages();
+        };
+
+        AubsPaginationCustomElement.prototype.currentPageChanged = function currentPageChanged() {
+            this.calculatePages();
+        };
+
+        AubsPaginationCustomElement.prototype.calculatePages = function calculatePages() {
+            this.totalPages = this.totalItems <= this.pageSize ? 1 : Math.ceil(this.totalItems / this.pageSize);
+
+            if (isNaN(this.paginationSize) || this.paginationSize <= 0) {
+                this.displayAllPages();
+            } else {
+                this.limitVisiblePages();
+            }
+        };
+
+        AubsPaginationCustomElement.prototype.displayAllPages = function displayAllPages() {
+            var displayPages = [];
+
+            for (var i = 1; i <= this.totalPages; i++) {
+                displayPages.push({
+                    title: i.toString(),
+                    value: i
+                });
+            }
+            this.displayPages = displayPages;
+        };
+
+        AubsPaginationCustomElement.prototype.limitVisiblePages = function limitVisiblePages() {
+            var displayPages = [];
+
+            var totalTiers = Math.ceil(this.totalPages / this.paginationSize);
+
+            var activeTier = Math.ceil(this.currentPage / this.paginationSize);
+
+            var start = (activeTier - 1) * this.paginationSize + 1;
+            var end = start + this.paginationSize;
+
+            if (activeTier > 1) {
+                displayPages.push({
+                    title: '...',
+                    value: start - 1
+                });
+            }
+
+            for (var i = start; i < end; i++) {
+
+                if (i > this.totalPages) {
+                    break;
+                }
+
+                displayPages.push({
+                    title: i.toString(),
+                    value: i
+                });
+            }
+
+            if (activeTier < totalTiers) {
+                displayPages.push({
+                    title: '...',
+                    value: end
+                });
+            }
+
+            this.displayPages = displayPages;
+        };
+
+        AubsPaginationCustomElement.prototype.selectPage = function selectPage(page) {
+            if (page < 1 || page > this.totalPages || page === this.currentPage) {
+                return;
+            }
+
+            this.currentPage = page;
+        };
+
+        AubsPaginationCustomElement.prototype.nextPage = function nextPage() {
+            if (this.currentPage < this.totalPages) {
+                this.currentPage++;
+            }
+        };
+
+        AubsPaginationCustomElement.prototype.previousPage = function previousPage() {
+            if (this.currentPage > 1) {
+                this.currentPage--;
+            }
+        };
+
+        AubsPaginationCustomElement.prototype.firstPage = function firstPage() {
+            this.currentPage = 1;
+        };
+
+        AubsPaginationCustomElement.prototype.lastPage = function lastPage() {
+            this.currentPage = this.totalPages;
+        };
+
+        return AubsPaginationCustomElement;
+    }(), (_descriptor = _applyDecoratedDescriptor(_class.prototype, "currentPage", [_dec], {
+        enumerable: true,
+        initializer: null
+    }), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, "pageSize", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: null
+    }), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, "totalItems", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: null
+    }), _descriptor4 = _applyDecoratedDescriptor(_class.prototype, "hideSinglePage", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return _bootstrapOptions.bootstrapOptions.paginationHideSinglePage;
+        }
+    }), _descriptor5 = _applyDecoratedDescriptor(_class.prototype, "paginationSize", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: null
+    }), _descriptor6 = _applyDecoratedDescriptor(_class.prototype, "boundaryLinks", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return _bootstrapOptions.bootstrapOptions.paginationBoundaryLinks;
+        }
+    }), _descriptor7 = _applyDecoratedDescriptor(_class.prototype, "firstText", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return _bootstrapOptions.bootstrapOptions.paginationFirstText;
+        }
+    }), _descriptor8 = _applyDecoratedDescriptor(_class.prototype, "lastText", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return _bootstrapOptions.bootstrapOptions.paginationLastText;
+        }
+    }), _descriptor9 = _applyDecoratedDescriptor(_class.prototype, "directionLinks", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return _bootstrapOptions.bootstrapOptions.paginationDirectionLinks;
+        }
+    }), _descriptor10 = _applyDecoratedDescriptor(_class.prototype, "previousText", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return _bootstrapOptions.bootstrapOptions.paginationPreviousText;
+        }
+    }), _descriptor11 = _applyDecoratedDescriptor(_class.prototype, "nextText", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return _bootstrapOptions.bootstrapOptions.paginationNextText;
+        }
+    })), _class));
+});
+define('aurelia-bootstrap/popover/aubs-popover',["exports", "aurelia-framework", "../utils/tooltip-service", "../utils/bootstrap-options", "velocity-animate"], function (exports, _aureliaFramework, _tooltipService, _bootstrapOptions, _velocityAnimate) {
+    "use strict";
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.AubsPopoverCustomAttribute = undefined;
+
+    var _velocityAnimate2 = _interopRequireDefault(_velocityAnimate);
+
+    function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : {
+            default: obj
+        };
+    }
+
+    function _initDefineProp(target, property, descriptor, context) {
+        if (!descriptor) return;
+        Object.defineProperty(target, property, {
+            enumerable: descriptor.enumerable,
+            configurable: descriptor.configurable,
+            writable: descriptor.writable,
+            value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
+        });
+    }
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+        var desc = {};
+        Object['ke' + 'ys'](descriptor).forEach(function (key) {
+            desc[key] = descriptor[key];
+        });
+        desc.enumerable = !!desc.enumerable;
+        desc.configurable = !!desc.configurable;
+
+        if ('value' in desc || desc.initializer) {
+            desc.writable = true;
+        }
+
+        desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+            return decorator(target, property, desc) || desc;
+        }, desc);
+
+        if (context && desc.initializer !== void 0) {
+            desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+            desc.initializer = undefined;
+        }
+
+        if (desc.initializer === void 0) {
+            Object['define' + 'Property'](target, property, desc);
+            desc = null;
+        }
+
+        return desc;
+    }
+
+    function _initializerWarningHelper(descriptor, context) {
+        throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
+    }
+
+    var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8;
+
+    var AubsPopoverCustomAttribute = exports.AubsPopoverCustomAttribute = (_dec = (0, _aureliaFramework.inject)(Element, _tooltipService.TooltipService), _dec2 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = (_class2 = function () {
+        function AubsPopoverCustomAttribute(element, tooltipService) {
+            var _this = this;
+
+            _classCallCheck(this, AubsPopoverCustomAttribute);
+
+            _initDefineProp(this, "title", _descriptor, this);
+
+            _initDefineProp(this, "body", _descriptor2, this);
+
+            _initDefineProp(this, "position", _descriptor3, this);
+
+            _initDefineProp(this, "disabled", _descriptor4, this);
+
+            _initDefineProp(this, "isOpen", _descriptor5, this);
+
+            _initDefineProp(this, "trigger", _descriptor6, this);
+
+            _initDefineProp(this, "customPopover", _descriptor7, this);
+
+            _initDefineProp(this, "onToggle", _descriptor8, this);
+
+            this.triggers = [];
+            this.validPositions = ['top', 'bottom', 'left', 'right'];
+            this.valuesChanged = false;
+            this.visible = false;
+
+            this.element = element;
+            this.tooltipService = tooltipService;
+
+            this.listeners = {
+                in: function _in() {
+                    return _this.handleShow();
+                },
+                out: function out() {
+                    return _this.handleHide();
+                },
+                click: function click() {
+                    _this.visible ? _this.handleHide() : _this.handleShow();
+                },
+                outside: function outside(event) {
+                    return _this.handleOutside(event);
+                }
+            };
+        }
+
+        AubsPopoverCustomAttribute.prototype.bind = function bind() {
+            if (!this.validPositions.includes(this.position)) {
+                this.position = 'top';
+            }
+
+            this.triggers = this.trigger.split(' ');
+        };
+
+        AubsPopoverCustomAttribute.prototype.attached = function attached() {
+            this.tooltipService.setTriggers(this.element, this.triggers, this.listeners);
+
+            if (this.customPopover) {
+                this.customPopover.style.display = 'none';
+            }
+
+            this.attached = true;
+            if (this.isOpen) {
+                this.handleShow();
+            }
+        };
+
+        AubsPopoverCustomAttribute.prototype.detached = function detached() {
+            this.tooltipService.removeTriggers(this.element, this.triggers, this.listeners);
+
+            if (this.popover) {
+                document.body.removeChild(this.popover);
+            }
+
+            if (this.tether) {
+                this.tether.destroy();
+            }
+        };
+
+        AubsPopoverCustomAttribute.prototype.isOpenChanged = function isOpenChanged() {
+            if (!this.attached) {
+                return;
+            }
+
+            if (this.isOpen) {
+                this.handleShow();
+            } else {
+                this.handleHide();
+            }
+        };
+
+        AubsPopoverCustomAttribute.prototype.titleChanged = function titleChanged() {
+            this.valuesChanged = true;
+
+            if (this.titleElement) {
+                this.titleElement.innerHTML = this.title;
+            }
+        };
+
+        AubsPopoverCustomAttribute.prototype.bodyChanged = function bodyChanged() {
+            this.valuesChanged = true;
+
+            if (this.bodyElement) {
+                this.bodyElement.innerHTML = this.body;
+            }
+        };
+
+        AubsPopoverCustomAttribute.prototype.positionChanged = function positionChanged(newValue, oldValue) {
+            if (!this.validPositions.includes(newValue)) {
+                this.position = oldValue;
+                return;
+            }
+            this.oldPosition = oldValue;
+
+            this.valuesChanged = true;
+        };
+
+        AubsPopoverCustomAttribute.prototype.triggerChanged = function triggerChanged(newValue, oldValue) {
+            this.tooltipService.removeTriggers(this.element, this.triggers, this.listeners);
+
+            this.triggers = this.trigger.split(' ');
+            this.tooltipService.setTriggers(this.element, this.triggers, this.listeners);
+        };
+
+        AubsPopoverCustomAttribute.prototype.handleShow = function handleShow() {
+            var _this2 = this;
+
+            if (this.visible || this.disabled) {
+                return;
+            }
+
+            if (!this.popover || this.valuesChanged) {
+                this.createPopover();
+                this.valuesChanged = false;
+            }
+
+            this.popover.style.display = 'block';
+            this.tether.position();
+
+            (0, _velocityAnimate2.default)(this.popover, 'stop').then(function () {
+                (0, _velocityAnimate2.default)(_this2.popover, 'fadeIn').then(function () {
+                    _this2.popover.classList.add('in');
+
+                    if (typeof _this2.onToggle === 'function') {
+                        _this2.onToggle({ open: true });
+                    }
+                });
+            });
+
+            this.visible = true;
+            this.isOpen = true;
+        };
+
+        AubsPopoverCustomAttribute.prototype.handleHide = function handleHide() {
+            var _this3 = this;
+
+            if (!this.visible) {
+                return;
+            }
+
+            (0, _velocityAnimate2.default)(this.popover, 'stop').then(function () {
+                (0, _velocityAnimate2.default)(_this3.popover, 'fadeOut').then(function () {
+                    _this3.popover.classList.remove('in');
+
+                    if (typeof _this3.onToggle === 'function') {
+                        _this3.onToggle({ open: false });
+                    }
+                });
+            });
+
+            this.visible = false;
+            this.isOpen = false;
+        };
+
+        AubsPopoverCustomAttribute.prototype.handleOutside = function handleOutside(event) {
+            if (!this.visible) {
+                return;
+            }
+
+            if (this.element !== event.target && !this.popover.contains(event.target)) {
+                this.handleHide();
+            }
+        };
+
+        AubsPopoverCustomAttribute.prototype.getPositionClass = function getPositionClass(position) {
+            return (_bootstrapOptions.bootstrapOptions.version === 4 ? 'popover-' : '') + position;
+        };
+
+        AubsPopoverCustomAttribute.prototype.createPopover = function createPopover() {
+            var arrow = document.createElement('div');
+            arrow.classList.add('arrow');
+
+            if (this.customPopover) {
+                this.popover = this.customPopover;
+
+                this.popover.classList.remove(this.getPositionClass(this.oldPosition));
+
+                this.popover.classList.add('popover');
+                this.popover.classList.add(this.getPositionClass(this.position));
+
+                if (!this.popover.querySelector('.arrow')) {
+                    this.popover.appendChild(arrow);
+                }
+            } else {
+                if (this.popover) {
+                    document.body.removeChild(this.popover);
+                }
+
+                this.popover = document.createElement('div');
+                this.popover.classList.add('popover');
+                this.popover.classList.add(this.getPositionClass(this.position));
+
+                this.popover.appendChild(arrow);
+
+                if (this.title) {
+                    this.titleElement = document.createElement('h3');
+                    this.titleElement.classList.add('popover-title');
+                    this.titleElement.innerHTML = this.title;
+                    this.popover.appendChild(this.titleElement);
+                }
+
+                var content = document.createElement('div');
+                content.classList.add('popover-content');
+                this.bodyElement = document.createElement('p');
+                this.bodyElement.innerHTML = this.body;
+                content.appendChild(this.bodyElement);
+                this.popover.appendChild(content);
+
+                document.body.appendChild(this.popover);
+            }
+
+            if (this.tether) {
+                this.tether.destroy();
+            }
+
+            this.tether = this.tooltipService.createAttachment(this.element, this.popover, this.position);
+        };
+
+        return AubsPopoverCustomAttribute;
+    }(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "title", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: null
+    }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "body", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: null
+    }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "position", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return _bootstrapOptions.bootstrapOptions.popoverPosition;
+        }
+    }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "disabled", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return false;
+        }
+    }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "isOpen", [_dec2], {
+        enumerable: true,
+        initializer: function initializer() {
+            return false;
+        }
+    }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "trigger", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return _bootstrapOptions.bootstrapOptions.popoverTrigger;
+        }
+    }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, "customPopover", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: null
+    }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, "onToggle", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: null
+    })), _class2)) || _class);
+});
+define('aurelia-bootstrap/utils/tooltip-service',['exports', 'tether'], function (exports, _tether) {
+    'use strict';
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.TooltipService = undefined;
+
+    var _tether2 = _interopRequireDefault(_tether);
+
+    function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : {
+            default: obj
+        };
+    }
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    var TooltipService = exports.TooltipService = function () {
+        function TooltipService() {
+            _classCallCheck(this, TooltipService);
+        }
+
+        TooltipService.prototype.createAttachment = function createAttachment(target, element, position) {
+            var attachment = void 0;
+            var targetAttachment = void 0;
+
+            if (position === 'top') {
+                attachment = 'bottom center';
+                targetAttachment = "top center";
+            } else if (position === 'bottom') {
+                attachment = 'top center';
+                targetAttachment = "bottom center";
+            } else if (position === 'left') {
+                attachment = 'center right';
+                targetAttachment = "center left";
+            } else {
+                attachment = 'center left';
+                targetAttachment = "center right";
+            }
+
+            return new _tether2.default({
+                element: element,
+                target: target,
+                attachment: attachment,
+                targetAttachment: targetAttachment
+            });
+        };
+
+        TooltipService.prototype.setTriggers = function setTriggers(element, triggers, listeners) {
+            if (!triggers.includes('none')) {
+                if (triggers.includes('mouseover')) {
+                    element.addEventListener('mouseover', listeners.in);
+                    element.addEventListener('mouseleave', listeners.out);
+                }
+
+                if (triggers.includes('focus')) {
+                    element.addEventListener('focus', listeners.in);
+                    element.addEventListener('blur', listeners.out);
+                }
+
+                if (triggers.includes('click')) {
+                    element.addEventListener('click', listeners.click);
+                } else if (triggers.includes('outsideClick')) {
+                    element.addEventListener('click', listeners.in);
+                    document.addEventListener('click', listeners.outside);
+                }
+            }
+        };
+
+        TooltipService.prototype.removeTriggers = function removeTriggers(element, triggers, listeners) {
+            if (!triggers.includes('none')) {
+                if (triggers.includes('mouseover')) {
+                    element.removeEventListener('mouseover', listeners.in);
+                    element.removeEventListener('mouseleave', listeners.out);
+                }
+
+                if (triggers.includes('focus')) {
+                    element.removeEventListener('focus', listeners.in);
+                    element.removeEventListener('blur', listeners.out);
+                }
+
+                if (triggers.includes('click')) {
+                    element.removeEventListener('click', listeners.click);
+                } else if (triggers.includes('outsideClick')) {
+                    element.removeEventListener('click', listeners.in);
+                    document.removeEventListener('click', listeners.outside);
+                }
+            }
+        };
+
+        return TooltipService;
+    }();
+});
+define('aurelia-bootstrap/tabs/aubs-tab',["exports", "aurelia-framework", "./aubs-tabset", "velocity-animate"], function (exports, _aureliaFramework, _aubsTabset, _velocityAnimate) {
+    "use strict";
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.AubsTabCustomElement = undefined;
+
+    var _velocityAnimate2 = _interopRequireDefault(_velocityAnimate);
+
+    function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : {
+            default: obj
+        };
+    }
+
+    function _initDefineProp(target, property, descriptor, context) {
+        if (!descriptor) return;
+        Object.defineProperty(target, property, {
+            enumerable: descriptor.enumerable,
+            configurable: descriptor.configurable,
+            writable: descriptor.writable,
+            value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
+        });
+    }
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+        var desc = {};
+        Object['ke' + 'ys'](descriptor).forEach(function (key) {
+            desc[key] = descriptor[key];
+        });
+        desc.enumerable = !!desc.enumerable;
+        desc.configurable = !!desc.configurable;
+
+        if ('value' in desc || desc.initializer) {
+            desc.writable = true;
+        }
+
+        desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+            return decorator(target, property, desc) || desc;
+        }, desc);
+
+        if (context && desc.initializer !== void 0) {
+            desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+            desc.initializer = undefined;
+        }
+
+        if (desc.initializer === void 0) {
+            Object['define' + 'Property'](target, property, desc);
+            desc = null;
+        }
+
+        return desc;
+    }
+
+    function _initializerWarningHelper(descriptor, context) {
+        throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
+    }
+
+    var _dec, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4;
+
+    var AubsTabCustomElement = exports.AubsTabCustomElement = (_dec = (0, _aureliaFramework.inject)(_aubsTabset.AubsTabsetCustomElement, Element), _dec(_class = (_class2 = function () {
+        function AubsTabCustomElement(tabset, element) {
+            _classCallCheck(this, AubsTabCustomElement);
+
+            _initDefineProp(this, "header", _descriptor, this);
+
+            _initDefineProp(this, "disabled", _descriptor2, this);
+
+            _initDefineProp(this, "onSelect", _descriptor3, this);
+
+            _initDefineProp(this, "onDeselect", _descriptor4, this);
+
+            this.active = false;
+
+            this.tabset = tabset;
+            this.element = element;
+        }
+
+        AubsTabCustomElement.prototype.bind = function bind() {
+            if (!this.header) {
+                throw new Error('Must provide a header for the tab.');
+            }
+        };
+
+        AubsTabCustomElement.prototype.attached = function attached() {
+            this.$tabPane = this.element.querySelector('.tab-pane');
+            this.$tabPane.style.display = this.active ? 'block' : 'none';
+        };
+
+        AubsTabCustomElement.prototype.handleTabChanged = function handleTabChanged(index) {
+            var isSelected = index === this.index;
+
+            if (isSelected === this.active) {
+                return;
+            }
+
+            this.active = isSelected;
+
+            if (isSelected) {
+                if (this.$tabPane) {
+                    (0, _velocityAnimate2.default)(this.$tabPane, 'fadeIn');
+                }
+
+                if (typeof this.onSelect === 'function') {
+                    this.onSelect({ index: this.index });
+                }
+            } else {
+                this.$tabPane.style.display = 'none';
+
+                if (typeof this.onDeselect === 'function') {
+                    this.onDeselect({ index: this.index });
+                }
+            }
+        };
+
+        return AubsTabCustomElement;
+    }(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "header", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: null
+    }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "disabled", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return false;
+        }
+    }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "onSelect", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: null
+    }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "onDeselect", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: null
+    })), _class2)) || _class);
+});
+define('aurelia-bootstrap/tabs/aubs-tabset',["exports", "aurelia-framework", "../utils/bootstrap-options"], function (exports, _aureliaFramework, _bootstrapOptions) {
+    "use strict";
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.AubsTabsetCustomElement = undefined;
+
+    function _initDefineProp(target, property, descriptor, context) {
+        if (!descriptor) return;
+        Object.defineProperty(target, property, {
+            enumerable: descriptor.enumerable,
+            configurable: descriptor.configurable,
+            writable: descriptor.writable,
+            value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
+        });
+    }
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+        var desc = {};
+        Object['ke' + 'ys'](descriptor).forEach(function (key) {
+            desc[key] = descriptor[key];
+        });
+        desc.enumerable = !!desc.enumerable;
+        desc.configurable = !!desc.configurable;
+
+        if ('value' in desc || desc.initializer) {
+            desc.writable = true;
+        }
+
+        desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+            return decorator(target, property, desc) || desc;
+        }, desc);
+
+        if (context && desc.initializer !== void 0) {
+            desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+            desc.initializer = undefined;
+        }
+
+        if (desc.initializer === void 0) {
+            Object['define' + 'Property'](target, property, desc);
+            desc = null;
+        }
+
+        return desc;
+    }
+
+    function _initializerWarningHelper(descriptor, context) {
+        throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
+    }
+
+    var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3;
+
+    var AubsTabsetCustomElement = exports.AubsTabsetCustomElement = (_dec = (0, _aureliaFramework.children)({ name: "tabs", selector: "aubs-tab" }), _dec2 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = (_class2 = function () {
+        function AubsTabsetCustomElement() {
+            _classCallCheck(this, AubsTabsetCustomElement);
+
+            _initDefineProp(this, "type", _descriptor, this);
+
+            _initDefineProp(this, "vertical", _descriptor2, this);
+
+            _initDefineProp(this, "active", _descriptor3, this);
+
+            this.tabsClass = 'nav-tabs';
+        }
+
+        AubsTabsetCustomElement.prototype.typeChanged = function typeChanged() {
+            this.tabsClass = this.type === 'pills' ? 'nav-pills' : 'nav-tabs';
+        };
+
+        AubsTabsetCustomElement.prototype.activeChanged = function activeChanged(newValue) {
+
+            if (!this.tabs || this.tabs.length == 0) {
+                return;
+            }
+
+            if (newValue > this.tabs.length) {
+                this.active = 0;
+                return;
+            }
+
+            this.selectTab(this.tabs[this.active], true);
+        };
+
+        AubsTabsetCustomElement.prototype.tabsChanged = function tabsChanged() {
+            for (var i = 0; i < this.tabs.length; i++) {
+                var next = this.tabs[i];
+                next.index = i;
+            }
+
+            if (this.active >= this.tabs.length) {
+                this.active = 0;
+            }
+
+            this.selectTab(this.tabs[this.active]);
+        };
+
+        AubsTabsetCustomElement.prototype.selectTab = function selectTab(tab) {
+            var force = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+            if (tab.disabled && !force) {
+                return;
+            }
+
+            this.active = tab.index;
+
+            this.emitTabChanged();
+        };
+
+        AubsTabsetCustomElement.prototype.emitTabChanged = function emitTabChanged() {
+            for (var _iterator = this.tabs, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+                var _ref;
+
+                if (_isArray) {
+                    if (_i >= _iterator.length) break;
+                    _ref = _iterator[_i++];
+                } else {
+                    _i = _iterator.next();
+                    if (_i.done) break;
+                    _ref = _i.value;
+                }
+
+                var next = _ref;
+
+                next.handleTabChanged(this.active);
+            }
+        };
+
+        return AubsTabsetCustomElement;
+    }(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "type", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return _bootstrapOptions.bootstrapOptions.tabsetType;
+        }
+    }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "vertical", [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return _bootstrapOptions.bootstrapOptions.tabsetVertical;
+        }
+    }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "active", [_dec2], {
+        enumerable: true,
+        initializer: function initializer() {
+            return 0;
+        }
+    })), _class2)) || _class);
+});
+define('aurelia-bootstrap/tooltip/aubs-tooltip',['exports', 'aurelia-framework', '../utils/tooltip-service', '../utils/bootstrap-options', 'velocity-animate'], function (exports, _aureliaFramework, _tooltipService, _bootstrapOptions, _velocityAnimate) {
+    'use strict';
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.AubsTooltipCustomAttribute = undefined;
+
+    var _velocityAnimate2 = _interopRequireDefault(_velocityAnimate);
+
+    function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : {
+            default: obj
+        };
+    }
+
+    function _initDefineProp(target, property, descriptor, context) {
+        if (!descriptor) return;
+        Object.defineProperty(target, property, {
+            enumerable: descriptor.enumerable,
+            configurable: descriptor.configurable,
+            writable: descriptor.writable,
+            value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
+        });
+    }
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+        var desc = {};
+        Object['ke' + 'ys'](descriptor).forEach(function (key) {
+            desc[key] = descriptor[key];
+        });
+        desc.enumerable = !!desc.enumerable;
+        desc.configurable = !!desc.configurable;
+
+        if ('value' in desc || desc.initializer) {
+            desc.writable = true;
+        }
+
+        desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+            return decorator(target, property, desc) || desc;
+        }, desc);
+
+        if (context && desc.initializer !== void 0) {
+            desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+            desc.initializer = undefined;
+        }
+
+        if (desc.initializer === void 0) {
+            Object['define' + 'Property'](target, property, desc);
+            desc = null;
+        }
+
+        return desc;
+    }
+
+    function _initializerWarningHelper(descriptor, context) {
+        throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
+    }
+
+    var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5;
+
+    var AubsTooltipCustomAttribute = exports.AubsTooltipCustomAttribute = (_dec = (0, _aureliaFramework.inject)(Element, _tooltipService.TooltipService), _dec2 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = (_class2 = function () {
+        function AubsTooltipCustomAttribute(element, tooltipService) {
+            var _this = this;
+
+            _classCallCheck(this, AubsTooltipCustomAttribute);
+
+            _initDefineProp(this, 'text', _descriptor, this);
+
+            _initDefineProp(this, 'position', _descriptor2, this);
+
+            _initDefineProp(this, 'disabled', _descriptor3, this);
+
+            _initDefineProp(this, 'open', _descriptor4, this);
+
+            _initDefineProp(this, 'trigger', _descriptor5, this);
+
+            this.triggers = [];
+            this.validPositions = ['top', 'bottom', 'left', 'right'];
+            this.valuesChanged = false;
+            this.visible = false;
+
+            this.element = element;
+            this.tooltipService = tooltipService;
+
+            this.listeners = {
+                in: function _in() {
+                    return _this.handleShow();
+                },
+                out: function out() {
+                    return _this.handleHide();
+                },
+                click: function click() {
+                    _this.visible ? _this.handleHide() : _this.handleShow();
+                },
+                outside: function outside(event) {
+                    return _this.handleOutside(event);
+                }
+            };
+        }
+
+        AubsTooltipCustomAttribute.prototype.bind = function bind() {
+            if (!this.validPositions.includes(this.position)) {
+                this.position = 'top';
+            }
+
+            this.triggers = this.trigger.split(' ');
+        };
+
+        AubsTooltipCustomAttribute.prototype.attached = function attached() {
+            this.tooltipService.setTriggers(this.element, this.triggers, this.listeners);
+
+            this.attached = true;
+            if (this.open) {
+                this.handleShow();
+            }
+        };
+
+        AubsTooltipCustomAttribute.prototype.detached = function detached() {
+            this.tooltipService.removeTriggers(this.element, this.triggers, this.listeners);
+
+            if (this.tooltip) {
+                document.body.removeChild(this.tooltip);
+            }
+
+            if (this.tether) {
+                this.tether.destroy();
+            }
+        };
+
+        AubsTooltipCustomAttribute.prototype.openChanged = function openChanged() {
+            if (!this.attached) {
+                return;
+            }
+
+            if (this.open) {
+                this.handleShow();
+            } else {
+                this.handleHide();
+            }
+        };
+
+        AubsTooltipCustomAttribute.prototype.triggerChanged = function triggerChanged() {
+            this.tooltipService.removeTriggers(this.element, this.triggers, this.listeners);
+
+            this.triggers = this.trigger.split(' ');
+            this.tooltipService.setTriggers(this.element, this.triggers, this.listeners);
+        };
+
+        AubsTooltipCustomAttribute.prototype.textChanged = function textChanged() {
+            this.valuesChanged = true;
+
+            if (this.body) {
+                this.body.innerHTML = this.text;
+            }
+        };
+
+        AubsTooltipCustomAttribute.prototype.positionChanged = function positionChanged(newValue, oldValue) {
+            if (!this.validPositions.includes(newValue)) {
+                this.position = oldValue;
+                return;
+            }
+
+            this.valuesChanged = true;
+        };
+
+        AubsTooltipCustomAttribute.prototype.handleShow = function handleShow() {
+            var _this2 = this;
+
+            if (this.visible || this.disabled) {
+                return;
+            }
+
+            if (!this.tooltip || this.valuesChanged) {
+                this.createTooltip();
+                this.valuesChanged = false;
+            }
+
+            this.tooltip.style.display = 'block';
+            this.tether.position();
+
+            (0, _velocityAnimate2.default)(this.tooltip, 'stop').then(function () {
+                (0, _velocityAnimate2.default)(_this2.tooltip, 'fadeIn').then(function () {
+                    _this2.tooltip.classList.add('in');
+                });
+            });
+
+            this.visible = true;
+            this.open = true;
+        };
+
+        AubsTooltipCustomAttribute.prototype.handleHide = function handleHide() {
+            var _this3 = this;
+
+            if (!this.visible) {
+                return;
+            }
+
+            (0, _velocityAnimate2.default)(this.tooltip, 'stop').then(function () {
+                (0, _velocityAnimate2.default)(_this3.tooltip, 'fadeOut').then(function () {
+                    _this3.tooltip.classList.remove('in');
+                });
+            });
+
+            this.visible = false;
+            this.open = false;
+        };
+
+        AubsTooltipCustomAttribute.prototype.handleOutside = function handleOutside(event) {
+            if (this.element !== event.target) {
+                this.handleHide();
+            }
+        };
+
+        AubsTooltipCustomAttribute.prototype.createTooltip = function createTooltip() {
+            if (this.tooltip) {
+                document.body.removeChild(this.tooltip);
+            }
+
+            this.tooltip = document.createElement('div');
+            this.tooltip.classList.add('tooltip');
+
+            this.tooltip.classList.add((_bootstrapOptions.bootstrapOptions.version === 4 ? 'tooltip-' : '') + this.position);
+            this.tooltip.setAttribute('role', 'tooltip');
+
+            var arrow = document.createElement('div');
+            arrow.classList.add('tooltip-arrow');
+            this.tooltip.appendChild(arrow);
+
+            this.body = document.createElement('div');
+            this.body.classList.add('tooltip-inner');
+            this.body.innerHTML = this.text;
+            this.tooltip.appendChild(this.body);
+
+            document.body.appendChild(this.tooltip);
+
+            if (this.tether) {
+                this.tether.destroy();
+            }
+
+            this.tether = this.tooltipService.createAttachment(this.element, this.tooltip, this.position);
+        };
+
+        return AubsTooltipCustomAttribute;
+    }(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'text', [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: null
+    }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'position', [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return _bootstrapOptions.bootstrapOptions.tooltipPosition;
+        }
+    }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'disabled', [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return false;
+        }
+    }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'open', [_dec2], {
+        enumerable: true,
+        initializer: function initializer() {
+            return false;
+        }
+    }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, 'trigger', [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return _bootstrapOptions.bootstrapOptions.tooltipTrigger;
+        }
+    })), _class2)) || _class);
+});
+define('aurelia-bootstrap/typeahead/aubs-typeahead',['exports', 'aurelia-framework', '../utils/bootstrap-options'], function (exports, _aureliaFramework, _bootstrapOptions) {
+    'use strict';
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.AubsTypeaheadCustomElement = undefined;
+
+    var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+        return typeof obj;
+    } : function (obj) {
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+
+    function _initDefineProp(target, property, descriptor, context) {
+        if (!descriptor) return;
+        Object.defineProperty(target, property, {
+            enumerable: descriptor.enumerable,
+            configurable: descriptor.configurable,
+            writable: descriptor.writable,
+            value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
+        });
+    }
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+        var desc = {};
+        Object['ke' + 'ys'](descriptor).forEach(function (key) {
+            desc[key] = descriptor[key];
+        });
+        desc.enumerable = !!desc.enumerable;
+        desc.configurable = !!desc.configurable;
+
+        if ('value' in desc || desc.initializer) {
+            desc.writable = true;
+        }
+
+        desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+            return decorator(target, property, desc) || desc;
+        }, desc);
+
+        if (context && desc.initializer !== void 0) {
+            desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+            desc.initializer = undefined;
+        }
+
+        if (desc.initializer === void 0) {
+            Object['define' + 'Property'](target, property, desc);
+            desc = null;
+        }
+
+        return desc;
+    }
+
+    function _initializerWarningHelper(descriptor, context) {
+        throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
+    }
+
+    var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14;
+
+    var AubsTypeaheadCustomElement = exports.AubsTypeaheadCustomElement = (_dec = (0, _aureliaFramework.inject)(_aureliaFramework.BindingEngine), _dec2 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = (_class2 = function () {
+        function AubsTypeaheadCustomElement(bindingEngine) {
+            var _this = this;
+
+            _classCallCheck(this, AubsTypeaheadCustomElement);
+
+            _initDefineProp(this, 'value', _descriptor, this);
+
+            _initDefineProp(this, 'data', _descriptor2, this);
+
+            _initDefineProp(this, 'openOnFocus', _descriptor3, this);
+
+            _initDefineProp(this, 'resultsLimit', _descriptor4, this);
+
+            _initDefineProp(this, 'focusFirst', _descriptor5, this);
+
+            _initDefineProp(this, 'loadingText', _descriptor6, this);
+
+            _initDefineProp(this, 'inputClass', _descriptor7, this);
+
+            _initDefineProp(this, 'placeholder', _descriptor8, this);
+
+            _initDefineProp(this, 'key', _descriptor9, this);
+
+            _initDefineProp(this, 'noResultsText', _descriptor10, this);
+
+            _initDefineProp(this, 'waitTime', _descriptor11, this);
+
+            _initDefineProp(this, 'instantCleanEmpty', _descriptor12, this);
+
+            _initDefineProp(this, 'customEntry', _descriptor13, this);
+
+            this.v4 = false;
+            this.displayData = [];
+
+            _initDefineProp(this, 'filter', _descriptor14, this);
+
+            this.focusedIndex = -1;
+            this.loading = false;
+
+            this.bindingEngine = bindingEngine;
+
+            this.openListener = function () {
+                return _this.openDropdown();
+            };
+            this.outsideClickListener = function (evt) {
+                return _this.handleBlur(evt);
+            };
+            this.keyDownListener = function (evt) {
+                return _this.onKeyDown(evt);
+            };
+        }
+
+        AubsTypeaheadCustomElement.prototype.bind = function bind() {
+            var _this2 = this;
+
+            if (_bootstrapOptions.bootstrapOptions.version === 4) {
+                this.v4 = true;
+            }
+
+            if (Array.isArray(this.data)) {
+                this.dataObserver = this.bindingEngine.collectionObserver(this.data).subscribe(function () {
+                    _this2.checkCustomEntry();
+                    _this2.applyPlugins();
+                });
+            }
+
+            this.checkCustomEntry();
+        };
+
+        AubsTypeaheadCustomElement.prototype.attached = function attached() {
+            if (this.openOnFocus) {
+                this.input.addEventListener('focus', this.openListener);
+                this.input.addEventListener('click', this.openListener);
+            }
+
+            document.addEventListener('click', this.outsideClickListener);
+            this.input.addEventListener('keydown', this.keyDownListener);
+
+            this.applyPlugins();
+        };
+
+        AubsTypeaheadCustomElement.prototype.detached = function detached() {
+            if (this.dataObserver) {
+                this.dataObserver.dispose();
+            }
+
+            document.removeEventListener('click', this.outsideClickListener);
+            this.input.removeEventListener('keydown', this.keyDownListener);
+
+            if (this.openOnFocus) {
+                this.input.removeEventListener('focus', this.openListener);
+                this.input.removeEventListener('click', this.openListener);
+            }
+        };
+
+        AubsTypeaheadCustomElement.prototype.openDropdown = function openDropdown() {
+            this.doFocusFirst();
+            this.dropdown.classList.add('open');
+        };
+
+        AubsTypeaheadCustomElement.prototype.doFocusFirst = function doFocusFirst() {
+            if (this.focusFirst && this.displayData.length > 0) {
+                this.displayData[0].$focused = true;
+                this.focusedIndex = 0;
+            }
+        };
+
+        AubsTypeaheadCustomElement.prototype.checkCustomEntry = function checkCustomEntry() {
+            if (this.data.length > 0 && _typeof(this.data[0]) === 'object') {
+                this.customEntry = false;
+            }
+        };
+
+        AubsTypeaheadCustomElement.prototype.filterChanged = function filterChanged() {
+            this.focusNone();
+            this.applyPlugins();
+
+            if (this.instantCleanEmpty && this.filter.length == 0) {
+                this.value = undefined;
+            } else if (this.customEntry) {
+                this.value = this.filter;
+            }
+        };
+
+        AubsTypeaheadCustomElement.prototype.applyPlugins = function applyPlugins() {
+            var _this3 = this;
+
+            var localData = void 0;
+
+            if (typeof this.data === 'function') {
+                this.loading = true;
+
+                return this.data({ filter: this.filter, limit: this.resultsLimit }).then(function (data) {
+                    _this3.displayData = data;
+                    _this3.doFocusFirst();
+                }).catch(function () {
+                    _this3.displayData = [];
+                    throw new Error('Unable to retrieve data');
+                }).finally(function () {
+                    return _this3.loading = false;
+                });
+            } else {
+                localData = [].concat(this.data);
+                if (this.filter && this.filter.length > 0) {
+                    localData = this.doFilter(localData);
+                }
+
+                if (!this.isNull(this.resultsLimit) && !isNaN(this.resultsLimit)) {
+                    localData = localData.slice(0, this.resultsLimit);
+                }
+
+                this.displayData = localData;
+                this.doFocusFirst();
+            }
+        };
+
+        AubsTypeaheadCustomElement.prototype.focusNone = function focusNone() {
+            var focused = this.displayData.find(function (next) {
+                return next.$focused;
+            });
+            if (focused) {
+                focused.$focused = false;
+            }
+
+            this.focusedIndex = -1;
+        };
+
+        AubsTypeaheadCustomElement.prototype.doFilter = function doFilter(toFilter) {
+            var _this4 = this;
+
+            return toFilter.filter(function (item) {
+                return !_this4.isNull(item) && _this4.getName(item).toLowerCase().indexOf(_this4.filter.toLowerCase()) > -1;
+            });
+        };
+
+        AubsTypeaheadCustomElement.prototype.getName = function getName(item) {
+            if ((typeof item === 'undefined' ? 'undefined' : _typeof(item)) === 'object') {
+                return item[this.key].toString();
+            }
+
+            return item.toString();
+        };
+
+        AubsTypeaheadCustomElement.prototype.resetFilter = function resetFilter() {
+            if (this.filter.length === 0) {
+                this.value = undefined;
+            }
+
+            if (this.isNull(this.value)) {
+                this.filter = '';
+            } else {
+                this.filter = this.getName(this.value);
+            }
+        };
+
+        AubsTypeaheadCustomElement.prototype.handleBlur = function handleBlur(evt) {
+            if (!this.dropdown.classList.contains('open')) {
+                return;
+            }
+
+            if (!this.dropdown.contains(evt.target)) {
+                this.dropdown.classList.remove('open');
+                this.focusNone();
+                this.resetFilter();
+            }
+        };
+
+        AubsTypeaheadCustomElement.prototype.itemSelected = function itemSelected(item) {
+            this.value = item;
+            this.dropdown.classList.remove('open');
+            this.filter = this.getName(this.value);
+        };
+
+        AubsTypeaheadCustomElement.prototype.isNull = function isNull(item) {
+            return item === null || item === undefined;
+        };
+
+        AubsTypeaheadCustomElement.prototype.onKeyDown = function onKeyDown(evt) {
+            this.dropdown.classList.add('open');
+
+            switch (evt.keyCode) {
+                case 40:
+                    return this.handleDown();
+                case 38:
+                    return this.handleUp();
+                case 13:
+                case 9:
+                    return this.handleEnter();
+                case 27:
+                    return this.handleScape();
+            }
+        };
+
+        AubsTypeaheadCustomElement.prototype.handleDown = function handleDown() {
+            if (this.focusedIndex >= this.displayData.length - 1) {
+                return;
+            }
+
+            if (this.focusedIndex >= 0) {
+                this.displayData[this.focusedIndex].$focused = false;
+            }
+            this.displayData[++this.focusedIndex].$focused = true;
+        };
+
+        AubsTypeaheadCustomElement.prototype.handleUp = function handleUp() {
+            if (this.focusedIndex === 0) {
+                return;
+            }
+
+            this.displayData[this.focusedIndex--].$focused = false;
+            this.displayData[this.focusedIndex].$focused = true;
+        };
+
+        AubsTypeaheadCustomElement.prototype.handleEnter = function handleEnter() {
+            if (this.displayData.length === 0 || this.focusedIndex < 0) {
+                return;
+            }
+
+            this.itemSelected(this.displayData[this.focusedIndex]);
+        };
+
+        AubsTypeaheadCustomElement.prototype.handleScape = function handleScape() {
+            this.dropdown.classList.remove('open');
+            this.focusNone();
+            this.resetFilter();
+        };
+
+        return AubsTypeaheadCustomElement;
+    }(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'value', [_dec2], {
+        enumerable: true,
+        initializer: null
+    }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'data', [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: null
+    }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'openOnFocus', [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return false;
+        }
+    }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'resultsLimit', [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: null
+    }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, 'focusFirst', [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return true;
+        }
+    }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, 'loadingText', [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return 'Loading...';
+        }
+    }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, 'inputClass', [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return '';
+        }
+    }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, 'placeholder', [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return 'Start typing to get results';
+        }
+    }), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, 'key', [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return 'name';
+        }
+    }), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, 'noResultsText', [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return 'No Results';
+        }
+    }), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, 'waitTime', [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return 350;
+        }
+    }), _descriptor12 = _applyDecoratedDescriptor(_class2.prototype, 'instantCleanEmpty', [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return true;
+        }
+    }), _descriptor13 = _applyDecoratedDescriptor(_class2.prototype, 'customEntry', [_aureliaFramework.bindable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return false;
+        }
+    }), _descriptor14 = _applyDecoratedDescriptor(_class2.prototype, 'filter', [_aureliaFramework.observable], {
+        enumerable: true,
+        initializer: function initializer() {
+            return '';
+        }
+    })), _class2)) || _class);
+});
+define('aurelia-bootstrap/typeahead/typeahead-highlight',['exports'], function (exports) {
+    'use strict';
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    var TypeaheadHighlightValueConverter = exports.TypeaheadHighlightValueConverter = function () {
+        function TypeaheadHighlightValueConverter() {
+            _classCallCheck(this, TypeaheadHighlightValueConverter);
+        }
+
+        TypeaheadHighlightValueConverter.prototype.toView = function toView(value, filter) {
+
+            if (!filter) {
+                return value;
+            }
+
+            var result = '';
+            var position = 0;
+
+            while (true) {
+                var index = value.toLowerCase().indexOf(filter.toLowerCase(), position);
+
+                if (index == -1) {
+                    result += value.substring(position);
+                    return result;
+                }
+
+                result += value.substring(position, index) + ('<strong>' + value.substr(index, filter.length) + '</strong>');
+
+                position = index + filter.length;
+
+                if (position >= value.length) {
+                    return result;
+                }
+            }
+        };
+
+        return TypeaheadHighlightValueConverter;
+    }();
+});
+define('aurelia-bootstrap/utils/bootstrap-config',['exports', './bootstrap-options'], function (exports, _bootstrapOptions) {
+    'use strict';
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.BootstrapConfig = undefined;
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    var BootstrapConfig = exports.BootstrapConfig = function BootstrapConfig() {
+        _classCallCheck(this, BootstrapConfig);
+
+        this.options = _bootstrapOptions.bootstrapOptions;
+    };
+});
+define('text!aurelia-bootstrap/accordion/aubs-accordion-group.html', ['module'], function(module) { module.exports = "<template>\n    <div class.bind=\"isBootstrapVersion(3) ? 'panel ' + panelClass : 'card' \">\n        <div role=\"tab\" class.bind=\"isBootstrapVersion(3) ? 'panel-heading' : 'card-header'\">\n            <template replaceable part=\"header\">\n                <h4 class.bind=\"isBootstrapVersion(3) ? 'panel-title' : 'mb-0'\">\n\n                    <a href=\"javascript:void(0)\" innerHTML.bind=\"title\" click.delegate=\"toggle()\" show.bind=\"!disabled\"></a>\n                    <span class=\"text-muted\" innerHTML.bind=\"title\" show.bind=\"disabled\"></span>\n                </h4>\n            </template>\n        </div>\n\n        <div class=\"collapse\" role=\"tabpanel\" ref=\"$collapse\">\n            <div class.bind=\"isBootstrapVersion(3) ? 'panel-body' : 'card-block'\">\n                <slot></slot>\n            </div>\n        </div>\n    </div>\n</template>"; });
+define('text!aurelia-bootstrap/accordion/aubs-accordion.html', ['module'], function(module) { module.exports = "<template>\n    <div role=\"tablist\" class.bind=\"bootstrapOptions.version === 3 ? 'panel-group' : ''\">\n        <slot></slot>\n    </div>\n</template>"; });
+define('text!aurelia-bootstrap/pagination/aubs-pagination.html', ['module'], function(module) { module.exports = "<template>\n    <template replaceable part=\"pagination\">\n        <nav hide.bind=\"hideSinglePage && totalPages === 1\">\n            <ul class=\"pagination\">\n\n                <li class-name.bind=\"currentPage === 1 ? 'disabled' : ''\" if.bind=\"boundaryLinks\">\n                    <a aria-label=\"Previous\" click.delegate=\"firstPage()\">\n                        <span aria-hidden=\"true\" innerhtml.bind=\"firstText\"></span>\n                    </a>\n                </li>\n\n                <li class-name.bind=\"currentPage === 1 ? 'disabled' : ''\" if.bind=\"directionLinks\">\n                    <a aria-label=\"Previous\" click.delegate=\"previousPage()\">\n                        <span aria-hidden=\"true\" innerhtml.bind=\"previousText\"></span>\n                    </a>\n                </li>\n\n                <li repeat.for=\"page of displayPages\" class-name.bind=\"currentPage === page.value ? 'active' : ''\">\n                    <a click.delegate=\"selectPage(page.value)\">${page.title}</a>\n                </li>\n\n                <li class-name.bind=\"currentPage === totalPages ? 'disabled' : ''\" if.bind=\"directionLinks\">\n                    <a aria-label=\"Next\" click.delegate=\"nextPage()\">\n                        <span aria-hidden=\"true\" innerhtml.bind=\"nextText\"></span>\n                    </a>\n                </li>\n\n                <li class-name.bind=\"currentPage === totalPages ? 'disabled' : ''\" if.bind=\"boundaryLinks\">\n                    <a aria-label=\"Previous\" click.delegate=\"lastPage()\">\n                        <span aria-hidden=\"true\" innerhtml.bind=\"lastText\"></span>\n                    </a>\n                </li>\n            </ul>\n        </nav>\n    </template>\n</template>"; });
+define('text!aurelia-bootstrap/tabs/aubs-tab.html', ['module'], function(module) { module.exports = "<template>\n    <div role=\"tabpanel\" class=\"tab-pane\">\n        <slot></slot>\n    </div>\n</template>"; });
+define('text!aurelia-bootstrap/tabs/aubs-tabset.html', ['module'], function(module) { module.exports = "<template>\n    <ul class=\"nav ${tabsClass} ${vertical ? 'nav-stacked' : ''}\">\n        <li repeat.for=\"tab of tabs\" class=\"nav-item ${tab.active ? 'active' : ''} ${tab.disabled ? 'disabled' : ''}\">\n            <a class=\"nav-link ${tab.active ? 'active' : ''} ${tab.disabled ? 'disabled' : ''}\"\n               href=\"javascript:void(0)\" click.delegate=\"selectTab(tab)\" innerhtml.bind=\"tab.header\"></a>\n        </li>\n    </ul>\n\n    <div class=\"tab-content\">\n        <slot></slot>\n    </div>\n\n</template>"; });
+define('text!aurelia-bootstrap/typeahead/aubs-typeahead.html', ['module'], function(module) { module.exports = "<template>\n\n    <require from=\"./typeahead-highlight\"></require>\n\n    <div class=\"dropdown\" ref=\"dropdown\">\n        <input class=\"form form-control ${inputClass}\" placeholder.one-way=\"placeholder\" ref=\"input\"\n               value.bind=\"filter & debounce:waitTime\">\n\n        <ul class=\"dropdown-menu\" if.bind=\"!v4\">\n            <li show.bind=\"displayData.length == 0 && !loading\" class=\"text-center\">\n                <span class=\"text-muted\" innerhtml.bind=\"noResultsText\"></span>\n            </li>\n\n            <li show.bind=\"loading\" class=\"text-center\">\n                <span class=\"text-muted\" innerhtml.bind=\"loadingText\"></span>\n            </li>\n\n            <li repeat.for=\"item of displayData\" show.bind=\"!loading\" class.bind=\"item.$focused ? 'active' : ''\">\n                <a class=\"dropdown-item\" href=\"javascript:void(0)\" click.delegate=\"itemSelected(item)\"\n                   innerhtml.bind=\"item.name | typeaheadHighlight:filter\">\n\n                </a>\n            </li>\n        </ul>\n\n        <div class=\"dropdown-menu\" if.bind=\"v4\">\n            <h6 class=\"dropdown-header text-center\" show.bind=\"displayData.length == 0 && !loading\" innerhtml.bind=\"noResultsText\"></h6>\n            <h6 class=\"dropdown-header text-center\" show.bind=\"loading\" innerhtml.bind=\"loadingText\"></h6>\n\n            <a repeat.for=\"item of displayData\" class=\"dropdown-item ${item.$focused ? 'active' : ''}\" href=\"javascript:void(0)\"\n               show.bind=\"!loading\" click.delegate=\"itemSelected(item)\"\n               innerhtml.bind=\"item.name | typeaheadHighlight:filter\"></a>\n\n        </div>\n    </div>\n</template>"; });
+function _aureliaConfigureModuleLoader(){requirejs.config({"baseUrl":"src/","paths":{"aurelia-dependency-injection":"..\\node_modules\\aurelia-dependency-injection\\dist\\amd\\aurelia-dependency-injection","aurelia-bootstrapper":"..\\node_modules\\aurelia-bootstrapper\\dist\\amd\\aurelia-bootstrapper","aurelia-loader":"..\\node_modules\\aurelia-loader\\dist\\amd\\aurelia-loader","aurelia-framework":"..\\node_modules\\aurelia-framework\\dist\\amd\\aurelia-framework","aurelia-history":"..\\node_modules\\aurelia-history\\dist\\amd\\aurelia-history","aurelia-logging":"..\\node_modules\\aurelia-logging\\dist\\amd\\aurelia-logging","aurelia-loader-default":"..\\node_modules\\aurelia-loader-default\\dist\\amd\\aurelia-loader-default","aurelia-history-browser":"..\\node_modules\\aurelia-history-browser\\dist\\amd\\aurelia-history-browser","aurelia-metadata":"..\\node_modules\\aurelia-metadata\\dist\\amd\\aurelia-metadata","aurelia-pal":"..\\node_modules\\aurelia-pal\\dist\\amd\\aurelia-pal","aurelia-pal-browser":"..\\node_modules\\aurelia-pal-browser\\dist\\amd\\aurelia-pal-browser","aurelia-logging-console":"..\\node_modules\\aurelia-logging-console\\dist\\amd\\aurelia-logging-console","aurelia-path":"..\\node_modules\\aurelia-path\\dist\\amd\\aurelia-path","aurelia-route-recognizer":"..\\node_modules\\aurelia-route-recognizer\\dist\\amd\\aurelia-route-recognizer","aurelia-polyfills":"..\\node_modules\\aurelia-polyfills\\dist\\amd\\aurelia-polyfills","aurelia-router":"..\\node_modules\\aurelia-router\\dist\\amd\\aurelia-router","aurelia-task-queue":"..\\node_modules\\aurelia-task-queue\\dist\\amd\\aurelia-task-queue","text":"..\\node_modules\\text\\text","aurelia-templating-binding":"..\\node_modules\\aurelia-templating-binding\\dist\\amd\\aurelia-templating-binding","aurelia-templating":"..\\node_modules\\aurelia-templating\\dist\\amd\\aurelia-templating","jquery":"..\\node_modules\\jquery\\dist\\jquery","tether":"..\\node_modules\\tether\\dist\\js\\tether","velocity-animate":"..\\node_modules\\velocity-animate\\velocity","aurelia-binding":"..\\node_modules\\aurelia-binding\\dist\\amd\\aurelia-binding","aurelia-event-aggregator":"..\\node_modules\\aurelia-event-aggregator\\dist\\amd\\aurelia-event-aggregator","app-bundle":"../scripts/app-bundle"},"packages":[{"name":"aurelia-templating-resources","location":"../node_modules/aurelia-templating-resources/dist/amd","main":"aurelia-templating-resources"},{"name":"bootstrap","location":"../node_modules/bootstrap/dist","main":"js/bootstrap.min"},{"name":"aurelia-testing","location":"../node_modules/aurelia-testing/dist/amd","main":"aurelia-testing"},{"name":"aurelia-bootstrap","location":"../node_modules/aurelia-bootstrap/dist/amd","main":"index"},{"name":"aurelia-templating-router","location":"../node_modules/aurelia-templating-router/dist/amd","main":"aurelia-templating-router"},{"name":"nprogress","location":"../node_modules/nprogress","main":"nprogress"}],"stubModules":["text"],"shim":{"bootstrap":{"deps":["jquery"],"exports":"$"}},"bundles":{"app-bundle":["app","contact-detail","contact-list","environment","main","messages","no-selection","utility","web-api","resources/index","resources/elements/loading-indicator","resources/elements/mh-pop","resources/elements/utils/bootstrap-options","resources/elements/utils/tooltip-service","styles"]}})}

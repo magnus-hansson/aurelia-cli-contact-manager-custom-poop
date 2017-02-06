@@ -8,7 +8,8 @@ export class ContactList {
   constructor(api, ea) {
     this.api = api;
     this.contacts = [];
-
+    this.position = 'top';
+    this.trigger = 'mouseover';
     ea.subscribe(ContactViewed, msg => this.select(msg.contact));
     ea.subscribe(ContactUpdated, msg => {
       let id = msg.contact.id;
@@ -21,8 +22,23 @@ export class ContactList {
     this.api.getContactList().then(contacts => this.contacts = contacts);
   }
 
+  reload() {
+    this.api.getContactList().then(contacts => this.contacts = contacts);
+  }
+
   select(contact) {
     this.selectedId = contact.id;
     return true;
   }
+
+    position = 'top';
+    trigger = 'mouseover';
+
+    toggled(open) {
+        if (open) {
+            console.log('opened');
+        } else {
+            console.log('closed');
+        }
+    }
 }

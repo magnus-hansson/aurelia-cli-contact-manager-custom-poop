@@ -2,11 +2,19 @@
   <div class="contact-list">
     <ul class="list-group">
       <li repeat.for="contact of contacts" class="list-group-item ${contact.id === $parent.selectedId ? 'active' : ''}" >
-        <a route-href="route: contacts; params.bind: {id:contact.id}" click.delegate="$parent.select(contact)">
+        <a route-href="route: contacts; params.bind: {id:contact.id}" click.delegate="$parent.select(contact)" aubs-popover="custom-popover.bind: customPopover; position.bind: position;trigger.bind: trigger;is-open.bind:isOpen;">
           <h4 class="list-group-item-heading">${contact.firstName} ${contact.lastName}</h4>
           <p class="list-group-item-text">${contact.email}</p>
         </a>
       </li>
     </ul>
   </div>
+  <div>
+     <button class="btn btn-success" click.delegate="reload()" >Reload</button>
+  </div>
+  <div ref="customPopover">
+    <h3 class="popover-title">My Title</h3>
+    <div class="popover-content">My Content</div>
+</div>
 </template>
+

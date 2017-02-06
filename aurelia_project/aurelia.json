@@ -154,7 +154,14 @@
             ]
           },
           "velocity-animate",
-          "tether"
+          "tether", {
+            "name": "aurelia-bootstrap",
+            "path": "../node_modules/aurelia-bootstrap/dist/amd",
+            "main": "index",
+            "resources": [
+              "**/*.html"
+            ]
+          }
         ]
       }
     ]

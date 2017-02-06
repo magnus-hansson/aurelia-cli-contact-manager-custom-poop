@@ -33,8 +33,8 @@ define('app',['exports', './web-api'], function (exports, _webApi) {
     return App;
   }();
 });
-define('contact-detail',['exports', 'aurelia-event-aggregator', './web-api', './messages', './utility'], function (exports, _aureliaEventAggregator, _webApi, _messages, _utility) {
-  'use strict';
+define('contact-detail',["exports", "aurelia-event-aggregator", "./web-api", "./messages", "./utility"], function (exports, _aureliaEventAggregator, _webApi, _messages, _utility) {
+  "use strict";
 
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -103,7 +103,7 @@ define('contact-detail',['exports', 'aurelia-event-aggregator', './web-api', './
 
     ContactDetail.prototype.canDeactivate = function canDeactivate() {
       if (!(0, _utility.areEqual)(this.originalContact, this.contact)) {
-        var result = confirm('You have unsaved changes. Are you sure you wish to leave?');
+        var result = confirm("You have unsaved changes. Are you sure you wish to leave?");
 
         if (!result) {
           this.ea.publish(new _messages.ContactViewed(this.contact));
@@ -116,7 +116,7 @@ define('contact-detail',['exports', 'aurelia-event-aggregator', './web-api', './
     };
 
     _createClass(ContactDetail, [{
-      key: 'canSave',
+      key: "canSave",
       get: function get() {
         return this.contact.firstName && this.contact.lastName && !this.api.isRequesting;
       }
@@ -147,9 +147,13 @@ define('contact-list',['exports', 'aurelia-event-aggregator', './web-api', './me
 
       _classCallCheck(this, ContactList);
 
+      this.position = 'top';
+      this.trigger = 'mouseover';
+
       this.api = api;
       this.contacts = [];
-
+      this.position = 'top';
+      this.trigger = 'mouseover';
       ea.subscribe(_messages.ContactViewed, function (msg) {
         return _this.select(msg.contact);
       });
@@ -170,9 +174,25 @@ define('contact-list',['exports', 'aurelia-event-aggregator', './web-api', './me
       });
     };
 
+    ContactList.prototype.reload = function reload() {
+      var _this3 = this;
+
+      this.api.getContactList().then(function (contacts) {
+        return _this3.contacts = contacts;
+      });
+    };
+
     ContactList.prototype.select = function select(contact) {
       this.selectedId = contact.id;
       return true;
+    };
+
+    ContactList.prototype.toggled = function toggled(open) {
+      if (open) {
+        console.log('opened');
+      } else {
+        console.log('closed');
+      }
     };
 
     return ContactList;
@@ -212,7 +232,7 @@ define('main',['exports', './environment'], function (exports, _environment) {
   });
 
   function configure(aurelia) {
-    aurelia.use.standardConfiguration().feature('resources');
+    aurelia.use.standardConfiguration().plugin('aurelia-bootstrap').feature('resources');
 
     if (_environment2.default.debug) {
       aurelia.use.developmentLogging();
@@ -414,7 +434,7 @@ define('resources/index',['exports'], function (exports) {
   });
   exports.configure = configure;
   function configure(config) {
-    config.globalResources(['./elements/loading-indicator', './elements/mh-pop']);
+    config.globalResources(['./elements/loading-indicator']);
   }
 });
 define('resources/elements/loading-indicator',['exports', 'nprogress', 'aurelia-framework'], function (exports, _nprogress, _aureliaFramework) {
@@ -915,8 +935,8 @@ define('resources/elements/utils/tooltip-service',['exports', 'tether'], functio
     }();
 });
 define('text!app.html', ['module'], function(module) { module.exports = "<template><require from=\"bootstrap/css/bootstrap.css\"></require><require from=\"./styles.css\"></require><require from=\"./contact-list\"></require><nav class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\"><div class=\"navbar-header\"><a class=\"navbar-brand\" href=\"#\"><i class=\"fa fa-user\"></i> <span>Contacts</span></a></div></nav><loading-indicator loading.bind=\"router.isNavigating || api.isRequesting\"></loading-indicator><div class=\"container\"><div class=\"row\"><contact-list class=\"col-md-4\"></contact-list><router-view class=\"col-md-8\"></router-view></div></div></template>"; });
-define('text!styles.css', ['module'], function(module) { module.exports = "body { padding-top: 70px; }\n\nsection {\n  margin: 0 20px;\n}\n\na:focus {\n  outline: none;\n}\n\n.navbar-nav li.loader {\n    margin: 12px 24px 0 6px;\n}\n\n.no-selection {\n  margin: 20px;\n}\n\n.contact-list {\n  overflow-y: auto;\n  border: 1px solid #ddd;\n  padding: 10px;\n}\n\n.panel {\n  margin: 20px;\n}\n\n.button-bar {\n  right: 0;\n  left: 0;\n  bottom: 0;\n  border-top: 1px solid #ddd;\n  background: white;\n}\n\n.button-bar > button {\n  float: right;\n  margin: 20px;\n}\n\nli.list-group-item {\n  list-style: none;\n}\n\nli.list-group-item > a {\n  text-decoration: none;\n}\n\nli.list-group-item.active > a {\n  color: white;\n}\n"; });
-define('text!contact-detail.html', ['module'], function(module) { module.exports = "<template><div class=\"panel panel-primary\"><div class=\"panel-heading\"><h3 class=\"panel-title\">Profile</h3></div><div class=\"panel-body\"><form role=\"form\" class=\"form-horizontal\"><div class=\"form-group\"><label class=\"col-sm-2 control-label\">First Name</label><div class=\"col-sm-10\"><input type=\"text\" placeholder=\"first name\" class=\"form-control\" value.bind=\"contact.firstName\"></div></div><div class=\"form-group\"><label class=\"col-sm-2 control-label\">Last Name</label><div class=\"col-sm-10\"><input type=\"text\" placeholder=\"last name\" class=\"form-control\" value.bind=\"contact.lastName\"></div></div><div class=\"form-group\"><label class=\"col-sm-2 control-label\">Email</label><div class=\"col-sm-10\"><input type=\"text\" placeholder=\"email\" class=\"form-control\" value.bind=\"contact.email\"></div></div><div class=\"form-group\"><label class=\"col-sm-2 control-label\">Phone Number</label><div class=\"col-sm-10\"><input type=\"text\" placeholder=\"phone number\" class=\"form-control\" value.bind=\"contact.phoneNumber\"></div></div></form></div></div><div class=\"button-bar\"><button class=\"btn btn-success\" click.delegate=\"save()\" disabled.bind=\"!canSave\">Save</button> <button class=\"btn btn-default\" mh-popover=\"title:My Title <i class='fa fa-heart'></i>;body:<a href='#/popover'>Awesome</a> <strong>Content</strong>;position.bind: 'left';on-toggle.call:toggled(open)\">Basic Popover</button></div></template>"; });
-define('text!contact-list.html', ['module'], function(module) { module.exports = "<template><div class=\"contact-list\"><ul class=\"list-group\"><li repeat.for=\"contact of contacts\" class=\"list-group-item ${contact.id === $parent.selectedId ? 'active' : ''}\"><a route-href=\"route: contacts; params.bind: {id:contact.id}\" click.delegate=\"$parent.select(contact)\"><h4 class=\"list-group-item-heading\">${contact.firstName} ${contact.lastName}</h4><p class=\"list-group-item-text\">${contact.email}</p></a></li></ul></div></template>"; });
+define('text!styles.css', ['module'], function(module) { module.exports = "body { padding-top: 70px; }\r\n\r\nsection {\r\n  margin: 0 20px;\r\n}\r\n\r\na:focus {\r\n  outline: none;\r\n}\r\n\r\n.navbar-nav li.loader {\r\n    margin: 12px 24px 0 6px;\r\n}\r\n\r\n.no-selection {\r\n  margin: 20px;\r\n}\r\n\r\n.contact-list {\r\n  overflow-y: auto;\r\n  border: 1px solid #ddd;\r\n  padding: 10px;\r\n}\r\n\r\n.panel {\r\n  margin: 20px;\r\n}\r\n\r\n.button-bar {\r\n  right: 0;\r\n  left: 0;\r\n  bottom: 0;\r\n  border-top: 1px solid #ddd;\r\n  background: white;\r\n}\r\n\r\n.button-bar > button {\r\n  float: right;\r\n  margin: 20px;\r\n}\r\n\r\nli.list-group-item {\r\n  list-style: none;\r\n}\r\n\r\nli.list-group-item > a {\r\n  text-decoration: none;\r\n}\r\n\r\nli.list-group-item.active > a {\r\n  color: white;\r\n}\r\n"; });
+define('text!contact-detail.html', ['module'], function(module) { module.exports = "<template><div class=\"panel panel-primary\"><div class=\"panel-heading\"><h3 class=\"panel-title\">Profile</h3></div><div class=\"panel-body\"><form role=\"form\" class=\"form-horizontal\"><div class=\"form-group\"><label class=\"col-sm-2 control-label\">First Name</label><div class=\"col-sm-10\"><input type=\"text\" placeholder=\"first name\" class=\"form-control\" value.bind=\"contact.firstName\"></div></div><div class=\"form-group\"><label class=\"col-sm-2 control-label\">Last Name</label><div class=\"col-sm-10\"><input type=\"text\" placeholder=\"last name\" class=\"form-control\" value.bind=\"contact.lastName\"></div></div><div class=\"form-group\"><label class=\"col-sm-2 control-label\">Email</label><div class=\"col-sm-10\"><input type=\"text\" placeholder=\"email\" class=\"form-control\" value.bind=\"contact.email\"></div></div><div class=\"form-group\"><label class=\"col-sm-2 control-label\">Phone Number</label><div class=\"col-sm-10\"><input type=\"text\" placeholder=\"phone number\" class=\"form-control\" value.bind=\"contact.phoneNumber\"></div></div></form></div></div><div class=\"button-bar\"><button class=\"btn btn-success\" click.delegate=\"save()\" disabled.bind=\"!canSave\">Save</button></div></template>"; });
+define('text!contact-list.html', ['module'], function(module) { module.exports = "<template><div class=\"contact-list\"><ul class=\"list-group\"><li repeat.for=\"contact of contacts\" class=\"list-group-item ${contact.id === $parent.selectedId ? 'active' : ''}\"><a route-href=\"route: contacts; params.bind: {id:contact.id}\" click.delegate=\"$parent.select(contact)\" aubs-popover=\"custom-popover.bind: customPopover; position.bind: position;trigger.bind: trigger;is-open.bind:isOpen;\"><h4 class=\"list-group-item-heading\">${contact.firstName} ${contact.lastName}</h4><p class=\"list-group-item-text\">${contact.email}</p></a></li></ul></div><div><button class=\"btn btn-success\" click.delegate=\"reload()\">Reload</button></div><div ref=\"customPopover\"><h3 class=\"popover-title\">My Title</h3><div class=\"popover-content\">My Content</div></div></template>"; });
 define('text!no-selection.html', ['module'], function(module) { module.exports = "<template><div class=\"no-selection text-center\"><h2>${message}</h2></div></template>"; });
 //# sourceMappingURL=app-bundle.js.map
